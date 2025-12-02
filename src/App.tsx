@@ -26,10 +26,7 @@ function App() {
 
     return (
         <>
-            {/* <Menu /> */}
-            <br />
-            <br />
-            <br />
+            <Menu />
 
             {/* <h1 className="font-littlelove text-7xl">Sammy and Jack</h1>
             <h2 className="subtitle font-laluxes text-2xl mt-12">
