@@ -34,16 +34,17 @@ const PictureFrame: React.FC<PictureFrameProps> = ({
 
     return (
         <div
-            className={`relative z-0 ${sizeClass} ${size === 'large' ? 'p-2 border-6 border-picture-frame-border bg-transparent' : ''}`}
+            className={`relative z-0 ${sizeClass} ${size === 'large' ? 'border-3 p-1 md:border-6 border-picture-frame-border bg-transparent' : ''}`}
         >
             <div
-                className={`relative overflow-hidden ${aspectRatioClass} border-4 border-picture-frame-border`}
+                className={`relative overflow-hidden ${aspectRatioClass} ${size === "large" ? 'border-2' : 'border-3'} md:border-4 border-picture-frame-border`}
                 style={{
                     backgroundImage: `url("${lqip.lqip}")`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                 }}
             >
+                {/* Optimized image with progressive loading */}
                 <img
                     src={lqip.src}
                     alt={alt}

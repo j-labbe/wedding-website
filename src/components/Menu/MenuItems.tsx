@@ -28,7 +28,7 @@ const MenuItems = ({
 
     return (
         <div
-            className={`fixed z-1001 top-0 left-0 w-full max-w-[1400px] mx-auto right-0 flex flex-col items-center justify-start bg-white transition-transform duration-500 ease-in-out min-[1400px]:rounded-b-lg ${isOpen ? 'translate-y-0' : '-translate-y-full'}`}
+            className={`fixed z-1001 top-0 left-0 w-full max-w-[1400px] mx-auto right-0 flex flex-col ${isOpen ? 'drop-shadow-2xl' : ''} items-center justify-start transition-all duration-500 ease-in-out min-[1400px]:rounded-b-lg ${isOpen ? 'translate-y-0' : '-translate-y-full'}`}
         >
             {/* Nav items grid: desktop - 2 cols, mobile - 1 col */}
             <div className="grid grid-cols-1 md:grid-cols-2 w-full divide-y-[3px] divide-menu-border md:divide-y-0">

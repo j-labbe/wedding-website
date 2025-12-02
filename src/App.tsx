@@ -33,42 +33,51 @@ function App() {
                 June 24, 2027
             </h2> */}
 
-            <h1 className="title text-5xl">Sammy and Jack</h1>
-            <h2 className="subtitle font-laluxes text-2xl mt-10">
+            <h1 className="title md:text-5xl/20 text-4xl/15 mt-5">Sammy and Jack</h1>
+            <h2 className="subtitle font-laluxes text-xl md:text-2xl mt-5">
                 June 24, 2027
             </h2>
 
 
 
-            <div className="flex flex-row items-center justify-center mt-3">
-                <h2 className="subtitle font-laluxes text-2xl mt-3 mb-10">
-                    Newport, RI •
+            <div className="flex flex-wrap items-center justify-center mt-3 mb-5 gap-x-3 gap-y-2">
+                <h2 className="subtitle font-laluxes text-xl md:text-2xl sm:text-2xl whitespace-nowrap">
+                    Newport, RI
                 </h2>
-                <h2 className="subtitle font-laluxes-noligatures text-2xl mt-3 ml-2 mb-10">
+                <span className="subtitle font-laluxes text-xl md:text-2xl sm:text-2xl hidden xs:inline-block">
+                    •
+                </span>
+                <h2 className="subtitle font-laluxes-noligatures text-xl md:text-2xl sm:text-2xl text-center sm:text-left">
                     OceanCliff Hotel
                 </h2>
             </div>
             <PictureFrame lqip={HeroPhoto} size="large" alt="Sammy and Jack" />
 
-            <div className="flex flex-row justify-evenly space-between w-full mt-10">
-                <PictureFrame
-                    lqip={GalleryPhoto1}
-                    size="small"
-                    alt="Sammy and Jack"
-                />
-                <PictureFrame
-                    lqip={GalleryPhoto2}
-                    size="small"
-                    alt="Sammy and Jack"
-                />
-                <PictureFrame
-                    lqip={GalleryPhoto3}
-                    size="small"
-                    alt="Sammy and Jack"
-                />
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full mt-10">
+                <div className="flex justify-center">
+                    <PictureFrame
+                        lqip={GalleryPhoto1}
+                        size="small"
+                        alt="Sammy and Jack"
+                    />
+                </div>
+                <div className="flex justify-center">
+                    <PictureFrame
+                        lqip={GalleryPhoto2}
+                        size="small"
+                        alt="Sammy and Jack"
+                    />
+                </div>
+                <div className="flex justify-center">
+                    <PictureFrame
+                        lqip={GalleryPhoto3}
+                        size="small"
+                        alt="Sammy and Jack"
+                    />
+                </div>
             </div>
 
-            <h1 className="title text-4xl mt-20">Welcome to Our Love Story</h1>
+            <h1 className="title text-xl xs:text-2xl sm:text-3xl md:text-4xl mt-20">Welcome to Our Love Story</h1>
 
             {/* <OceanCliffSvg /> */}
 

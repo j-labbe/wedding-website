@@ -95,6 +95,8 @@
     --color-menu-text: #ecf5f7;
     --color-menu-action-bg: #1e3351;
     --color-menu-action-hover-bg: hsl(215, 46%, 15%);
+
+    --breakpoint-xs: 30rem;
 }
 
 :root {
