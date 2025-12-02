@@ -1,0 +1,175 @@
+@import 'tailwindcss';
+
+@font-face {
+    font-family: 'Aston Script Pro';
+    src:
+        url('/fonts/AstonScriptPro-Bold.woff2') format('woff2'),
+        url('/fonts/AstonScriptPro-Bold.woff') format('woff'),
+        url('/fonts/AstonScriptPro-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'La Luxes';
+    src:
+        url('/fonts/LaLuxesSerifW05-Regular.woff2') format('woff2'),
+        url('/fonts/LaLuxesSerifW05-Regular.woff') format('woff'),
+        url('/fonts/LaLuxesSerifW05-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Optima';
+    src:
+        url('/fonts/Optima-Italic.woff2') format('woff2'),
+        url('/fonts/Optima-Italic.woff') format('woff'),
+        url('/fonts/Optima-Italic.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Optima';
+    src:
+        url('/fonts/Optima.woff2') format('woff2'),
+        url('/fonts/Optima.woff') format('woff'),
+        url('/fonts/Optima.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Optima';
+    src:
+        url('/fonts/Optima-Medium.woff2') format('woff2'),
+        url('/fonts/Optima-Medium.woff') format('woff'),
+        url('/fonts/Optima-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Optima';
+    src:
+        url('/fonts/Optima-Bold.woff2') format('woff2'),
+        url('/fonts/Optima-Bold.woff') format('woff'),
+        url('/fonts/Optima-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Sackers Heavy Roman';
+    src:
+        url('fonts/SackersHeavyRoman.woff2') format('woff2'),
+        url('fonts/SackersHeavyRoman.woff') format('woff'),
+        url('fonts/SackersHeavyRoman.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Little Love';
+    src: url('fonts/LittleLove-Regular.woff2') format('woff2'),
+        url('fonts/LittleLove-Regular.woff') format('woff'),
+        url('fonts/LittleLove-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@theme {
+    --color-primary-color: #3e4d62;
+    --color-primary-hover-color: hsl(210, 25%, 50%);
+    --color-primary-menu-hover-bg: rgb(59, 69, 88);
+    --color-menu-border: #4b5a70;
+    --color-menu-text: #ecf5f7;
+    --color-menu-action-bg: #1e3351;
+    --color-menu-action-hover-bg: hsl(215, 46%, 15%);
+}
+
+:root {
+    font-family: 'Optima', system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+
+    color-scheme: only light;
+    color: #3e4d62;
+    background-color: #ecf5f7;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    --primary-color: #3e4d62;
+    --primary-hover-color: hsl(210, 25%, 50%);
+
+    --color-menu-action-bg: #1e3351;
+    --color-menu-action-hover-bg: hsl(215, 46%, 15%);
+
+    --color-picture-frame-border: #1e3351;
+}
+
+#root {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+.title {
+    font-family: 'Aston Script Pro', cursive;
+}
+
+.font-laluxes {
+    font-family: 'La Luxes', serif;
+}
+
+.font-laluxes-noligatures {
+    font-family: 'La Luxes', serif;
+    font-variant-ligatures: none;
+}
+
+.font-sackers {
+    font-family: 'Sackers Heavy Roman', serif;
+}
+
+.font-littlelove {
+    font-family: 'Little Love', cursive;
+}
+
+/* Hamburger Menu Icon */
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    width: 30px;
+    height: 18px;
+    position: relative;
+}
+
+.hamburger span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: var(--primary-color);
+    border-radius: 3px;
+    opacity: 1;
+    transition: 0.35s ease-in-out;
+}
+
+/* Optional: Add hover effect */
+.hamburger:hover span {
+    background-color: var(--primary-hover-color);
+}
