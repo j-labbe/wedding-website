@@ -12,9 +12,11 @@
     },
     "dependencies": {
         "@tailwindcss/vite": "^4.1.17",
+        "framer-motion": "^12.23.25",
         "posthog-js": "^1.298.1",
         "react": "^19.2.0",
         "react-dom": "^19.2.0",
+        "react-router-dom": "^7.10.0",
         "react-turnstile": "^1.1.4",
         "tailwindcss": "^4.1.17"
     },

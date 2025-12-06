@@ -1,4 +1,5 @@
 import { useFeatureFlagEnabled } from 'posthog-js/react'
+import { Link } from 'react-router-dom'
 
 const MenuItems = ({
     isOpen,
@@ -19,7 +20,7 @@ const MenuItems = ({
     const rsvpEnabled = useFeatureFlagEnabled('rsvp-page')
 
     const actionItems = [
-        { name: 'Registry', link: 'https://example.com', active: true },
+        { name: 'Registry', link: 'https://www.theknot.com/us/samantha-balkir-and-jack-labbe-2027-06-24/registry', active: true },
         { name: 'RSVP', link: '/rsvp', active: rsvpEnabled },
     ]
 
@@ -28,19 +29,19 @@ const MenuItems = ({
 
     return (
         <div
-            className={`fixed z-1001 top-0 left-0 w-full max-w-[1400px] mx-auto right-0 flex flex-col ${isOpen ? 'drop-shadow-2xl' : ''} items-center justify-start transition-all duration-500 ease-in-out min-[1400px]:rounded-b-lg ${isOpen ? 'translate-y-0' : '-translate-y-full'}`}
+            className={`fixed z-1001 top-0 left-0 right-0 w-full max-w-[1200px] mx-auto flex flex-col ${isOpen ? 'drop-shadow-2xl' : ''} items-center justify-start transition-all duration-500 ease-in-out ${isOpen ? 'translate-y-0' : '-translate-y-full'}`}
         >
             {/* Nav items grid: desktop - 2 cols, mobile - 1 col */}
             <div className="grid grid-cols-1 md:grid-cols-2 w-full divide-y-[3px] divide-menu-border md:divide-y-0">
                 {items.map((item, index) => (
-                    <a
+                    <Link
                         key={item.name}
-                        href={item.link}
+                        to={item.link}
                         className={`${currentIndex === index ? 'bg-primary-menu-hover-bg' : 'bg-primary-color'} w-full py-5 font-sackers text-xl font-medium text-menu-text hover:bg-primary-menu-hover-bg transition-colors duration-300 pointer-cursor ${index % 2 === 0 ? 'md:border-r-[3px] md:border-menu-border' : ''} ${index < items.length - 2 ? 'md:border-b-[3px] md:border-menu-border' : ''}`}
                         onClick={() => setIsOpen(false)}
                     >
                         {item.name}
-                    </a>
+                    </Link>
                 ))}
             </div>
             {/* Action items: Registry and RSVP */}
@@ -57,16 +58,29 @@ const MenuItems = ({
                         const isTwoItems = activeCount === 2
                         const isLeftItem = index === 0
                         const isRightItem = index === 1
+                        const isExternal = item.link.startsWith('http')
+                        const className = `bg-menu-action-bg w-full py-7 font-sackers text-xl font-medium text-menu-text hover:bg-menu-action-hover-bg transition-colors duration-300 pointer-cursor ${index % 2 === 0 && isTwoItems ? 'md:border-r-[3px] md:border-menu-border' : ''} ${isOnlyItem ? 'min-[1200px]:rounded-b-xl' : ''} ${isTwoItems && isLeftItem ? 'min-[1400px]:rounded-bl-lg' : ''} ${isTwoItems && isRightItem ? 'min-[1400px]:rounded-br-lg' : ''}`
 
-                        return (
+                        return isExternal ? (
                             <a
                                 key={item.name}
                                 href={item.link}
-                                className={`bg-menu-action-bg w-full py-7 font-sackers text-xl font-medium text-menu-text hover:bg-menu-action-hover-bg transition-colors duration-300 pointer-cursor ${index % 2 === 0 && isTwoItems ? 'md:border-r-[3px] md:border-menu-border' : ''} ${isOnlyItem ? 'min-[1400px]:rounded-b-lg' : ''} ${isTwoItems && isLeftItem ? 'min-[1400px]:rounded-bl-lg' : ''} ${isTwoItems && isRightItem ? 'min-[1400px]:rounded-br-lg' : ''}`}
+                                className={className}
                                 onClick={() => setIsOpen(false)}
+                                target="_blank"
+                                rel="noopener noreferrer"
                             >
                                 {item.name}
                             </a>
+                        ) : (
+                            <Link
+                                key={item.name}
+                                to={item.link}
+                                className={className}
+                                onClick={() => setIsOpen(false)}
+                            >
+                                {item.name}
+                            </Link>
                         )
                     })}
             </div>

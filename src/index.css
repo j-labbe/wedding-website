@@ -87,6 +87,16 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'Zallman Caps';
+    src: url('/fonts/ZallmanCaps.woff2') format('woff2'),
+        url('/fonts/ZallmanCaps.woff') format('woff'),
+        url('/fonts/ZallmanCaps.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 @theme {
     --color-primary-color: #3e4d62;
     --color-primary-hover-color: hsl(210, 25%, 50%);
@@ -97,6 +107,24 @@
     --color-menu-action-hover-bg: hsl(215, 46%, 15%);
 
     --breakpoint-xs: 30rem;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    width: 100vw;
+    max-width: 100%;
+    position: relative;
 }
 
 :root {
@@ -120,6 +148,10 @@
     --color-menu-action-hover-bg: hsl(215, 46%, 15%);
 
     --color-picture-frame-border: #1e3351;
+
+    --font-laluxes: 'La Luxes', serif;
+    --font-aston-script-pro: 'Aston Script Pro', cursive;
+    --font-zallman-caps: 'Zallman Caps', sans-serif;
 }
 
 #root {
@@ -127,6 +159,8 @@
     margin: 0 auto;
     padding: 2rem;
     text-align: center;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 .title {
@@ -148,6 +182,22 @@
 
 .font-littlelove {
     font-family: 'Little Love', cursive;
+}
+
+.font-zallman {
+    font-family: 'Zallman Caps', sans-serif;
+}
+
+/* Drop cap with Zallman Caps font */
+.drop-cap::first-letter {
+    font-family: 'Zallman Caps', sans-serif;
+    font-size: 3.7rem;
+    /* line-height: 1.2 !important; */
+    float: left;
+    margin-right: 0.15rem;
+    margin-bottom: 0;
+    padding-top: 0.35em;
+    padding-bottom: 0;
 }
 
 /* Hamburger Menu Icon */

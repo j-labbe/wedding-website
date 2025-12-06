@@ -6,10 +6,10 @@ const Button = ({
     setIsOpen: (isOpen: boolean) => void
 }) => (
     <div
-        className="flex flex-row p-4 max-w-min items-center cursor-pointer"
+        className="flex flex-row md:p-4 max-w-min items-center cursor-pointer"
         onClick={() => setIsOpen(!isOpen)}
     >
-        <div className="position-absolute top-4 left-4 flex gap-4 bg-white p-2 shadow-[0px_0px_6px_2px_rgba(0,0,0,0.02)]">
+        <div className="flex gap-4 bg-white p-2 shadow-[0px_0px_6px_2px_rgba(0,0,0,0.02)]">
             <div className={`hamburger ${isOpen ? 'active' : ''}`}>
                 <span></span>
                 <span></span>
