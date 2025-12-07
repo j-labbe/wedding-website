@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ReactNode } from 'react'
+import type { ReactNode } from 'react'
 
 interface PageTransitionProps {
     children: ReactNode
@@ -24,7 +24,7 @@ const pageVariants = {
 }
 
 const pageTransition = {
-    type: 'spring',
+    type: 'spring' as const,
     stiffness: 260,
     damping: 26,
     mass: 0.8,

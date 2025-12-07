@@ -20,9 +20,11 @@ export default defineConfig({
             // JPEG optimization
             jpg: {
                 quality: 80,
+                mozjpeg: true,
             },
             jpeg: {
                 quality: 80,
+                mozjpeg: true,
             },
             // PNG optimization
             png: {
@@ -36,6 +38,9 @@ export default defineConfig({
             avif: {
                 quality: 70,
             },
+            // Enable auto-orient to fix rotation issues
+            cache: false,
+            cacheLocation: undefined,
         }),
     ],
 })

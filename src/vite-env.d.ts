@@ -16,6 +16,36 @@ declare module '*.jpg?lqip' {
     export default content
 }
 
+declare module '*.jpeg?lqip' {
+    const content: {
+        src: string
+        placeholder: string
+        width: number
+        height: number
+    }
+    export default content
+}
+
+declare module '*.JPEG?lqip' {
+    const content: {
+        src: string
+        placeholder: string
+        width: number
+        height: number
+    }
+    export default content
+}
+
+declare module '*.JPG?lqip' {
+    const content: {
+        src: string
+        placeholder: string
+        width: number
+        height: number
+    }
+    export default content
+}
+
 declare module '*.png?lqip' {
     const content: {
         src: string

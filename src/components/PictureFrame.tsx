@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 interface LQIPData {
-    lqip: string
+    placeholder: string
     src: string
     width: number
     height: number
@@ -50,9 +50,10 @@ const PictureFrame: React.FC<PictureFrameProps> = ({
             >
                 {/* LQIP placeholder */}
                 <img
-                    src={lqip.lqip}
+                    src={lqip.placeholder}
                     alt=""
                     className="absolute top-0 left-0 w-full h-full object-cover"
+                    style={{ imageOrientation: 'from-image' }}
                     aria-hidden="true"
                 />
                 {/* Full resolution image */}
@@ -60,7 +61,7 @@ const PictureFrame: React.FC<PictureFrameProps> = ({
                     src={lqip.src}
                     alt={alt}
                     className="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-500 ease-in-out"
-                    style={{ opacity: isLoaded ? 1 : 0 }}
+                    style={{ opacity: isLoaded ? 1 : 0, imageOrientation: 'from-image' }}
                     onLoad={() => setIsLoaded(true)}
                 />
             </div>
