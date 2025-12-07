@@ -3,7 +3,48 @@ import ProfileImage from '../components/ProfileImage';
 import Jack from '../assets/img/jack.jpeg?lqip';
 import Placeholder from '../assets/img/placeholder.png?lqip';
 
+interface CastMember {
+    name: string;
+    role: string;
+    image: typeof Placeholder;
+}
+
 function TheCast() {
+
+    const brideAndGroom: CastMember[] = [
+        { name: 'Sammy', role: 'The Bride', image: Placeholder },
+        { name: 'Jack', role: 'The Groom', image: Jack },
+    ];
+
+    const parents: CastMember[] = [
+        { name: 'Beth', role: 'Mother of The Bride', image: Placeholder },
+        { name: 'Tom', role: 'Father of The Bride', image: Placeholder },
+        { name: 'Brenda', role: 'Mother of The Groom', image: Placeholder },
+        { name: 'Paul', role: 'Father of The Groom', image: Placeholder },
+    ];
+
+    const weddingParty: CastMember[] = [
+        { name: 'Juliana', role: 'Maid of Honor', image: Placeholder },
+        { name: 'Eve', role: 'Bridesmaid', image: Placeholder },
+        { name: 'Morgan', role: 'Bridesmaid', image: Placeholder },
+        { name: 'Casey', role: 'Bridesmaid', image: Placeholder },
+        { name: 'Bailey', role: 'Bridesmaid', image: Placeholder },
+        { name: 'Sara', role: 'Bridesmaid', image: Placeholder },
+        { name: 'Peter', role: 'Best Man', image: Placeholder },
+        { name: 'Ryan', role: 'Groomsman', image: Placeholder },
+        { name: 'Chris', role: 'Groomsman', image: Placeholder },
+        { name: 'Tommy', role: 'Groomsman', image: Placeholder },
+        { name: 'Nick', role: 'Groomsman', image: Placeholder },
+        { name: '???', role: 'Groomsman', image: Placeholder },
+    ];
+
+    // Pets
+    const pets: CastMember[] = [
+        { name: 'Luna', role: 'Bun of Honor', image: Placeholder },
+        { name: 'Leo', role: 'Best Bun', image: Placeholder },
+    ];
+
+    // ====================================================================
 
     return (
         <PageTransition>
@@ -12,177 +53,56 @@ function TheCast() {
 
                 <div className="flex flex-col items-center max-w-4xl mx-auto my-10 space-y-10">
 
+                    {/* Bride & Groom */}
                     <div className="grid grid-cols-2 gap-4 max-w-4xl mx-auto my-10">
-                        <div className="col-span-4 sm:col-span-2 md:col-span-1 flex flex-col items-center">
-                            <ProfileImage lqip={Placeholder} size="medium" alt="Sammy Balkir" />
-                            <p className="font-semibold text-lg md:text-xl mb-2">Sammy</p>
-                            <p className="text-md md:text-lg leading-6 text-center">
-                                The Bride
-                            </p>
-                        </div>
-
-                        <div className="col-span-4 sm:col-span-2 md:col-span-1 flex flex-col items-center">
-                            <ProfileImage lqip={Jack} size="medium" alt="Jack Labbe" />
-                            <p className="font-semibold text-lg md:text-xl mb-2">Jack</p>
-                            <p className="text-md md:text-lg leading-6 text-center">
-                                The Groom
-                            </p>
-                        </div>
-
+                        {brideAndGroom.map((member) => (
+                            <div key={member.name} className="col-span-4 sm:col-span-2 md:col-span-1 flex flex-col items-center">
+                                <ProfileImage lqip={member.image} size="medium" alt={member.name} />
+                                <p className="font-semibold text-lg md:text-xl mb-2">{member.name}</p>
+                                <p className="text-md md:text-lg leading-6 text-center">
+                                    {member.role}
+                                </p>
+                            </div>
+                        ))}
                     </div>
 
+                    {/* Parents */}
                     <div className="grid grid-cols-4 gap-4 max-w-4xl mx-auto my-10">
-                        <div className="col-span-4 sm:col-span-2 md:col-span-1 flex flex-col items-center">
-                            <ProfileImage lqip={Placeholder} size="medium" alt="Sammy Balkir" />
-                            <p className="font-semibold text-lg md:text-xl mb-2">Beth</p>
-                            <p className="text-md md:text-lg leading-6 text-center">
-                                Mother of The Bride
-                            </p>
-                        </div>
-
-                        <div className="col-span-4 sm:col-span-2 md:col-span-1 flex flex-col items-center">
-                            <ProfileImage lqip={Placeholder} size="medium" alt="Jack Labbe" />
-                            <p className="font-semibold text-lg md:text-xl mb-2">Tom</p>
-                            <p className="text-md md:text-lg leading-6 text-center">
-                                Father of The Bride
-                            </p>
-                        </div>
-
-                        <div className="col-span-4 sm:col-span-2 md:col-span-1 flex flex-col items-center">
-                            <ProfileImage lqip={Placeholder} size="medium" alt="Sammy Balkir" />
-                            <p className="font-semibold text-lg md:text-xl mb-2">Brenda</p>
-                            <p className="text-md md:text-lg leading-6 text-center">
-                                Mother of The Groom
-                            </p>
-                        </div>
-
-                        <div className="col-span-4 sm:col-span-2 md:col-span-1 flex flex-col items-center">
-                            <ProfileImage lqip={Placeholder} size="medium" alt="Jack Labbe" />
-                            <p className="font-semibold text-lg md:text-xl mb-2">Paul</p>
-                            <p className="text-md md:text-lg leading-6 text-center">
-                                Father of The Groom
-                            </p>
-                        </div>
-
+                        {parents.map((member) => (
+                            <div key={member.name} className="col-span-4 sm:col-span-2 md:col-span-1 flex flex-col items-center">
+                                <ProfileImage lqip={member.image} size="medium" alt={member.name} />
+                                <p className="font-semibold text-lg md:text-xl mb-2">{member.name}</p>
+                                <p className="text-md md:text-lg leading-6 text-center">
+                                    {member.role}
+                                </p>
+                            </div>
+                        ))}
                     </div>
 
+                    {/* Wedding Party */}
                     <div className="grid grid-cols-3 gap-4 max-w-4xl mx-auto my-10">
-
-                        <div className="col-span-4 sm:col-span-2 md:col-span-1 flex flex-col items-center">
-                            <ProfileImage lqip={Placeholder} size="medium" alt="Juliana Gracey" />
-                            <p className="font-semibold text-lg md:text-xl mb-2">Juliana</p>
-                            <p className="text-md md:text-lg leading-6 text-center">
-                                Maid of Honor
-                            </p>
-                        </div>
-
-                        <div className="col-span-4 sm:col-span-2 md:col-span-1 flex flex-col items-center">
-                            <ProfileImage lqip={Placeholder} size="medium" alt="Peter Labbe" />
-                            <p className="font-semibold text-lg md:text-xl mb-2">Eve</p>
-                            <p className="text-md md:text-lg leading-6 text-center">
-                                Bridesmaid
-                            </p>
-                        </div>
-
-                        <div className="col-span-4 sm:col-span-2 md:col-span-1 flex flex-col items-center">
-                            <ProfileImage lqip={Placeholder} size="medium" alt="Peter Labbe" />
-                            <p className="font-semibold text-lg md:text-xl mb-2">Morgan</p>
-                            <p className="text-md md:text-lg leading-6 text-center">
-                                Bridesmaid
-                            </p>
-                        </div>
-
-                        <div className="col-span-4 sm:col-span-2 md:col-span-1 flex flex-col items-center">
-                            <ProfileImage lqip={Placeholder} size="medium" alt="Juliana Gracey" />
-                            <p className="font-semibold text-lg md:text-xl mb-2">Casey</p>
-                            <p className="text-md md:text-lg leading-6 text-center">
-                                Bridesmaid
-                            </p>
-                        </div>
-
-                        <div className="col-span-4 sm:col-span-2 md:col-span-1 flex flex-col items-center">
-                            <ProfileImage lqip={Placeholder} size="medium" alt="Peter Labbe" />
-                            <p className="font-semibold text-lg md:text-xl mb-2">Bailey</p>
-                            <p className="text-md md:text-lg leading-6 text-center">
-                                Bridesmaid
-                            </p>
-                        </div>
-
-                        <div className="col-span-4 sm:col-span-2 md:col-span-1 flex flex-col items-center">
-                            <ProfileImage lqip={Placeholder} size="medium" alt="Peter Labbe" />
-                            <p className="font-semibold text-lg md:text-xl mb-2">Sara</p>
-                            <p className="text-md md:text-lg leading-6 text-center">
-                                Bridesmaid
-                            </p>
-                        </div>
-
-                        <div className="col-span-4 sm:col-span-2 md:col-span-1 flex flex-col items-center">
-                            <ProfileImage lqip={Placeholder} size="medium" alt="Juliana Gracey" />
-                            <p className="font-semibold text-lg md:text-xl mb-2">Peter</p>
-                            <p className="text-md md:text-lg leading-6 text-center">
-                                Best Man
-                            </p>
-                        </div>
-
-                        <div className="col-span-4 sm:col-span-2 md:col-span-1 flex flex-col items-center">
-                            <ProfileImage lqip={Placeholder} size="medium" alt="Peter Labbe" />
-                            <p className="font-semibold text-lg md:text-xl mb-2">Ryan</p>
-                            <p className="text-md md:text-lg leading-6 text-center">
-                                Groomsman
-                            </p>
-                        </div>
-
-                        <div className="col-span-4 sm:col-span-2 md:col-span-1 flex flex-col items-center">
-                            <ProfileImage lqip={Placeholder} size="medium" alt="Peter Labbe" />
-                            <p className="font-semibold text-lg md:text-xl mb-2">Chris</p>
-                            <p className="text-md md:text-lg leading-6 text-center">
-                                Groomsman
-                            </p>
-                        </div>
-
-                        <div className="col-span-4 sm:col-span-2 md:col-span-1 flex flex-col items-center">
-                            <ProfileImage lqip={Placeholder} size="medium" alt="Juliana Gracey" />
-                            <p className="font-semibold text-lg md:text-xl mb-2">Tommy</p>
-                            <p className="text-md md:text-lg leading-6 text-center">
-                                Groomsman
-                            </p>
-                        </div>
-
-                        <div className="col-span-4 sm:col-span-2 md:col-span-1 flex flex-col items-center">
-                            <ProfileImage lqip={Placeholder} size="medium" alt="Peter Labbe" />
-                            <p className="font-semibold text-lg md:text-xl mb-2">Nick</p>
-                            <p className="text-md md:text-lg leading-6 text-center">
-                                Groomsman
-                            </p>
-                        </div>
-
-                        <div className="col-span-4 sm:col-span-2 md:col-span-1 flex flex-col items-center">
-                            <ProfileImage lqip={Placeholder} size="medium" alt="Peter Labbe" />
-                            <p className="font-semibold text-lg md:text-xl mb-2">???</p>
-                            <p className="text-md md:text-lg leading-6 text-center">
-                                Groomsman
-                            </p>
-                        </div>
-
+                        {weddingParty.map((member) => (
+                            <div key={member.name} className="col-span-4 sm:col-span-2 md:col-span-1 flex flex-col items-center">
+                                <ProfileImage lqip={member.image} size="medium" alt={member.name} />
+                                <p className="font-semibold text-lg md:text-xl mb-2">{member.name}</p>
+                                <p className="text-md md:text-lg leading-6 text-center">
+                                    {member.role}
+                                </p>
+                            </div>
+                        ))}
                     </div>
 
+                    {/* Pets */}
                     <div className="grid grid-cols-2 gap-4 max-w-4xl mx-auto my-10">
-                        <div className="col-span-4 sm:col-span-2 md:col-span-1 flex flex-col items-center">
-                            <ProfileImage lqip={Placeholder} size="medium" alt="Sammy Balkir" />
-                            <p className="font-semibold text-lg md:text-xl mb-2">Luna</p>
-                            <p className="text-md md:text-lg leading-6 text-center">
-                                Bun of Honor
-                            </p>
-                        </div>
-
-                        <div className="col-span-4 sm:col-span-2 md:col-span-1 flex flex-col items-center">
-                            <ProfileImage lqip={Placeholder} size="medium" alt="Jack Labbe" />
-                            <p className="font-semibold text-lg md:text-xl mb-2">Leo</p>
-                            <p className="text-md md:text-lg leading-6 text-center">
-                                Best Bun
-                            </p>
-                        </div>
-
+                        {pets.map((member) => (
+                            <div key={member.name} className="col-span-4 sm:col-span-2 md:col-span-1 flex flex-col items-center">
+                                <ProfileImage lqip={member.image} size="medium" alt={member.name} />
+                                <p className="font-semibold text-lg md:text-xl mb-2">{member.name}</p>
+                                <p className="text-md md:text-lg leading-6 text-center">
+                                    {member.role}
+                                </p>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>
