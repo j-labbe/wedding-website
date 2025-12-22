@@ -7,7 +7,7 @@ import Jack from '../assets/img/jack.jpeg?lqip';
 import Sammy from "../assets/img/IMG_0068.JPG?lqip";
 import Morgan from '../assets/img/Morgan.jpg?lqip';
 import JGRAY from "../assets/img/10AAE7B2-2471-46E1-B21D-000071BBF24A.JPEG?lqip";
-import Casey from "../assets/img/Casey.jpeg?lqip";
+import Casey from "../assets/img/casey_pic.jpeg?lqip";
 import Leo from "../assets/img/IMG_2423.jpg?lqip";
 import Luna from "../assets/img/IMG_1131.jpg?lqip";
 import Placeholder from '../assets/img/placeholder.png?lqip';
