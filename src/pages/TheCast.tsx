@@ -5,7 +5,7 @@ import CastSection from '../components/CastSection';
 import type { CastMember, AnimationState } from '../types/cast';
 import Jack from '../assets/img/jack.jpeg?lqip';
 import Sammy from "../assets/img/IMG_0068.JPG?lqip";
-import Morgan from '../assets/img/morgan.jpg?lqip';
+import Morgan from '../assets/img/Morgan.jpg?lqip';
 import JGRAY from "../assets/img/10AAE7B2-2471-46E1-B21D-000071BBF24A.JPEG?lqip";
 import Casey from "../assets/img/Casey.jpeg?lqip";
 import Leo from "../assets/img/IMG_2423.jpg?lqip";
