@@ -225,3 +225,13 @@ body {
 .hamburger:hover span {
     background-color: var(--primary-hover-color);
 }
+
+/* Fade in animation for modal overlay */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
