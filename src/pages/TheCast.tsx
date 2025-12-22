@@ -36,22 +36,21 @@ const MYSTERY: CastMember = { name: '???', role: 'Groomsman', image: Placeholder
 const LUNA: CastMember = { name: 'Luna', role: 'Bun of Honor', image: Luna, funFact: 'I only eat locally grown lettuce!' };
 const LEO: CastMember = { name: 'Leo', role: 'Best Bun', image: Leo, funFact: 'I love giving fist bumps!' };
 
-// Paired rows - Bride's side (left) | Groom's side (right)
 const BRIDE_AND_GROOM: PairedMembers[] = [
     { left: SAMMY, right: JACK },
 ];
 
 const PARENTS: PairedMembers[] = [
-    { left: BETH, right: BRENDA },   // Mothers
-    { left: TOM, right: PAUL },       // Fathers
+    { left: BETH, right: TOM },
+    { left: BRENDA, right: PAUL },
 ];
 
 const WEDDING_PARTY: PairedMembers[] = [
-    { left: JULIANA, right: PETER },  // MOH + Best Man
+    { left: JULIANA, right: PETER },
     { left: EVE, right: RYAN },
     { left: MORGAN, right: CHRIS },
-    { left: CASEY, right: TOMMY },
-    { left: BAILEY, right: NICK },
+    { left: CASEY, right: NICK },
+    { left: BAILEY, right: TOMMY },
     { left: SARA, right: MYSTERY },
 ];
 
@@ -70,7 +69,6 @@ function TheCast() {
     const [scrollOffset, setScrollOffset] = useState(0);
     const [showTutorial, setShowTutorial] = useState(false);
 
-    // Check if tutorial should be shown on mount
     useEffect(() => {
         if (shouldShowTutorial()) {
             setShowTutorial(true);
@@ -82,7 +80,6 @@ function TheCast() {
         markTutorialSeen();
     };
 
-    // Track scroll to update coin position
     useEffect(() => {
         if (animationState === 'idle') return;
 
@@ -96,7 +93,6 @@ function TheCast() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, [animationState]);
 
-    // Preload all cast member images to prevent reload on coin expand
     useEffect(() => {
         ALL_MEMBERS.forEach((member) => {
             const img = new Image();
@@ -105,9 +101,8 @@ function TheCast() {
     }, []);
 
     const handleMemberClick = (member: CastMember, event: React.MouseEvent<HTMLDivElement>) => {
-        if (animationState !== 'idle') return; // Prevent clicks during animation
+        if (animationState !== 'idle') return;
 
-        // Dismiss tutorial when user clicks a coin
         if (showTutorial) {
             dismissTutorial();
         }
