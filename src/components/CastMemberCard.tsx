@@ -15,7 +15,7 @@ function CastMemberCard({ member, isSelected, onMemberClick, overlay }: CastMemb
         <FadeInOnScroll className="flex flex-col items-center">
             {isSelected ? (
                 <div
-                    className="w-48 h-48 rounded-full"
+                    className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-full"
                     style={{ backgroundColor: 'rgba(200, 200, 200, 0.5)' }}
                 />
             ) : (

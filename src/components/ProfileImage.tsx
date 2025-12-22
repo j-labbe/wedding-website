@@ -23,9 +23,9 @@ const ProfileImage: React.FC<ProfileImageProps> = ({
     const [isLoaded, setIsLoaded] = useState(false)
 
     const sizeClasses = {
-        small: 'w-32 h-32',
-        medium: 'w-48 h-48',
-        large: 'w-64 h-64',
+        small: 'w-24 h-24 sm:w-32 sm:h-32',
+        medium: 'w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48',
+        large: 'w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64',
     }[size]
 
     const borderWidth = {
