@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import PageTransition from '../components/PageTransition';
 import FadeInOnScroll from '../components/FadeInOnScroll';
-import CastSection from '../components/CastSection';
-import type { CastMember, AnimationState } from '../types/cast';
+import PairedRow from '../components/PairedRow';
+import type { CastMember, PairedMembers, AnimationState } from '../types/cast';
 import Jack from '../assets/img/jack.jpeg?lqip';
 import Sammy from "../assets/img/IMG_0068.JPG?lqip";
 import Morgan from '../assets/img/Morgan.jpg?lqip';
@@ -12,40 +12,52 @@ import Leo from "../assets/img/IMG_2423.jpg?lqip";
 import Luna from "../assets/img/IMG_1131.jpg?lqip";
 import Placeholder from '../assets/img/placeholder.png?lqip';
 
-// Cast member data - defined outside component to avoid recreation on each render
-const BRIDE_AND_GROOM: CastMember[] = [
-    { name: 'Sammy', role: 'The Bride', image: Sammy, funFact: 'I have visited Disney over 10 times!' },
-    { name: 'Jack', role: 'The Groom', image: Jack, funFact: 'I have flown a plane! I also built this website.' },
+// Individual cast members
+const SAMMY: CastMember = { name: 'Sammy', role: 'The Bride', image: Sammy, funFact: 'I have visited Disney over 10 times!' };
+const JACK: CastMember = { name: 'Jack', role: 'The Groom', image: Jack, funFact: 'I have flown a plane! I also built this website.' };
+const BETH: CastMember = { name: 'Beth', role: 'Mother of The Bride', image: Placeholder, funFact: 'Add a fun fact about Beth!' };
+const TOM: CastMember = { name: 'Tom', role: 'Father of The Bride', image: Placeholder, funFact: 'Add a fun fact about Tom!' };
+const BRENDA: CastMember = { name: 'Brenda', role: 'Mother of The Groom', image: Placeholder, funFact: 'Add a fun fact about Brenda!' };
+const PAUL: CastMember = { name: 'Paul', role: 'Father of The Groom', image: Placeholder, funFact: 'Add a fun fact about Paul!' };
+const JULIANA: CastMember = { name: 'Juliana', role: 'Maid of Honor', image: JGRAY, funFact: 'I\'ve been to 100 concerts!' };
+const EVE: CastMember = { name: 'Eve', role: 'Bridesmaid', image: Placeholder, funFact: 'Add a fun fact about Eve!' };
+const MORGAN: CastMember = { name: 'Morgan', role: 'Bridesmaid', image: Morgan, funFact: 'I currently live in the Virgin Islands working as a dolphin trainer!' };
+const CASEY: CastMember = { name: 'Casey', role: 'Bridesmaid', image: Casey, funFact: 'My favorite animal is a groundhog!' };
+const BAILEY: CastMember = { name: 'Bailey', role: 'Bridesmaid', image: Placeholder, funFact: 'Add a fun fact about Bailey!' };
+const SARA: CastMember = { name: 'Sara', role: 'Bridesmaid', image: Placeholder, funFact: 'Add a fun fact about Sara!' };
+const PETER: CastMember = { name: 'Peter', role: 'Best Man', image: Placeholder, funFact: 'Add a fun fact about Peter!' };
+const RYAN: CastMember = { name: 'Ryan', role: 'Groomsman', image: Placeholder, funFact: 'Add a fun fact about Ryan!' };
+const CHRIS: CastMember = { name: 'Chris', role: 'Groomsman', image: Placeholder, funFact: 'Add a fun fact about Chris!' };
+const TOMMY: CastMember = { name: 'Tommy', role: 'Groomsman', image: Placeholder, funFact: 'Add a fun fact about Tommy!' };
+const NICK: CastMember = { name: 'Nick', role: 'Groomsman', image: Placeholder, funFact: 'Add a fun fact about Nick!' };
+const MYSTERY: CastMember = { name: '???', role: 'Groomsman', image: Placeholder, funFact: 'Add a fun fact about ???!' };
+const LUNA: CastMember = { name: 'Luna', role: 'Bun of Honor', image: Luna, funFact: 'I only eat locally grown lettuce!' };
+const LEO: CastMember = { name: 'Leo', role: 'Best Bun', image: Leo, funFact: 'I love giving fist bumps!' };
+
+// Paired rows - Bride's side (left) | Groom's side (right)
+const BRIDE_AND_GROOM: PairedMembers[] = [
+    { left: SAMMY, right: JACK },
 ];
 
-const PARENTS: CastMember[] = [
-    { name: 'Beth', role: 'Mother of The Bride', image: Placeholder, funFact: 'Add a fun fact about Beth!' },
-    { name: 'Tom', role: 'Father of The Bride', image: Placeholder, funFact: 'Add a fun fact about Tom!' },
-    { name: 'Brenda', role: 'Mother of The Groom', image: Placeholder, funFact: 'Add a fun fact about Brenda!' },
-    { name: 'Paul', role: 'Father of The Groom', image: Placeholder, funFact: 'Add a fun fact about Paul!' },
+const PARENTS: PairedMembers[] = [
+    { left: BETH, right: BRENDA },   // Mothers
+    { left: TOM, right: PAUL },       // Fathers
 ];
 
-const WEDDING_PARTY: CastMember[] = [
-    { name: 'Juliana', role: 'Maid of Honor', image: JGRAY, funFact: 'I\'ve been to 100 concerts!' },
-    { name: 'Eve', role: 'Bridesmaid', image: Placeholder, funFact: 'Add a fun fact about Eve!' },
-    { name: 'Morgan', role: 'Bridesmaid', image: Morgan, funFact: 'I currently live in the Virgin Islands working as a dolphin trainer!' },
-    { name: 'Casey', role: 'Bridesmaid', image: Casey, funFact: 'My favorite animal is a groundhog!' },
-    { name: 'Bailey', role: 'Bridesmaid', image: Placeholder, funFact: 'Add a fun fact about Bailey!' },
-    { name: 'Sara', role: 'Bridesmaid', image: Placeholder, funFact: 'Add a fun fact about Sara!' },
-    { name: 'Peter', role: 'Best Man', image: Placeholder, funFact: 'Add a fun fact about Peter!' },
-    { name: 'Ryan', role: 'Groomsman', image: Placeholder, funFact: 'Add a fun fact about Ryan!' },
-    { name: 'Chris', role: 'Groomsman', image: Placeholder, funFact: 'Add a fun fact about Chris!' },
-    { name: 'Tommy', role: 'Groomsman', image: Placeholder, funFact: 'Add a fun fact about Tommy!' },
-    { name: 'Nick', role: 'Groomsman', image: Placeholder, funFact: 'Add a fun fact about Nick!' },
-    { name: '???', role: 'Groomsman', image: Placeholder, funFact: 'Add a fun fact about ???!' },
+const WEDDING_PARTY: PairedMembers[] = [
+    { left: JULIANA, right: PETER },  // MOH + Best Man
+    { left: EVE, right: RYAN },
+    { left: MORGAN, right: CHRIS },
+    { left: CASEY, right: TOMMY },
+    { left: BAILEY, right: NICK },
+    { left: SARA, right: MYSTERY },
 ];
 
-const PETS: CastMember[] = [
-    { name: 'Luna', role: 'Bun of Honor', image: Luna, funFact: 'I only eat locally grown lettuce!' },
-    { name: 'Leo', role: 'Best Bun', image: Leo, funFact: 'I love giving fist bumps!' },
+const PETS: PairedMembers[] = [
+    { left: LUNA, right: LEO },
 ];
 
-const ALL_MEMBERS = [...BRIDE_AND_GROOM, ...PARENTS, ...WEDDING_PARTY, ...PETS];
+const ALL_MEMBERS = [SAMMY, JACK, BETH, TOM, BRENDA, PAUL, JULIANA, EVE, MORGAN, CASEY, BAILEY, SARA, PETER, RYAN, CHRIS, TOMMY, NICK, MYSTERY, LUNA, LEO];
 
 function TheCast() {
     const [selectedMember, setSelectedMember] = useState<CastMember | null>(null);
@@ -128,40 +140,55 @@ function TheCast() {
                         <h1 className="title md:text-5xl/20 text-4xl/15 mt-5 mb-5">The Cast</h1>
                     </FadeInOnScroll>
 
-                    <div className="flex flex-col items-center max-w-4xl mx-auto my-10 space-y-10">
+                    <div className="flex flex-col items-center max-w-4xl mx-auto my-10 space-y-6">
+                        {/* Bride & Groom */}
+                        {BRIDE_AND_GROOM.map((pair, index) => (
+                            <PairedRow
+                                key={`bride-groom-${index}`}
+                                left={pair.left}
+                                right={pair.right}
+                                selectedMemberName={selectedMember?.name}
+                                animationState={animationState}
+                                onMemberClick={handleMemberClick}
+                            />
+                        ))}
 
-                    <CastSection
-                        members={BRIDE_AND_GROOM}
-                        columns={2}
-                        selectedMemberName={selectedMember?.name}
-                        animationState={animationState}
-                        onMemberClick={handleMemberClick}
-                    />
+                        {/* Parents */}
+                        {PARENTS.map((pair, index) => (
+                            <PairedRow
+                                key={`parents-${index}`}
+                                left={pair.left}
+                                right={pair.right}
+                                selectedMemberName={selectedMember?.name}
+                                animationState={animationState}
+                                onMemberClick={handleMemberClick}
+                            />
+                        ))}
 
-                    <CastSection
-                        members={PARENTS}
-                        columns={4}
-                        selectedMemberName={selectedMember?.name}
-                        animationState={animationState}
-                        onMemberClick={handleMemberClick}
-                    />
+                        {/* Wedding Party */}
+                        {WEDDING_PARTY.map((pair, index) => (
+                            <PairedRow
+                                key={`wedding-party-${index}`}
+                                left={pair.left}
+                                right={pair.right}
+                                selectedMemberName={selectedMember?.name}
+                                animationState={animationState}
+                                onMemberClick={handleMemberClick}
+                            />
+                        ))}
 
-                    <CastSection
-                        members={WEDDING_PARTY}
-                        columns={3}
-                        selectedMemberName={selectedMember?.name}
-                        animationState={animationState}
-                        onMemberClick={handleMemberClick}
-                    />
-
-                    <CastSection
-                        members={PETS}
-                        columns={2}
-                        selectedMemberName={selectedMember?.name}
-                        animationState={animationState}
-                        onMemberClick={handleMemberClick}
-                    />
-                </div>
+                        {/* Pets */}
+                        {PETS.map((pair, index) => (
+                            <PairedRow
+                                key={`pets-${index}`}
+                                left={pair.left}
+                                right={pair.right}
+                                selectedMemberName={selectedMember?.name}
+                                animationState={animationState}
+                                onMemberClick={handleMemberClick}
+                            />
+                        ))}
+                    </div>
 
                 {/* Modal with Flip Card */}
                 {selectedMember && initialRect && animationState !== 'idle' && (() => {
@@ -256,7 +283,7 @@ function TheCast() {
                                             transform: 'rotateY(180deg) translateZ(8px)',
                                         }}
                                     >
-                                        <h2 className="title text-3xl md:text-4xl mb-4 text-primary">
+                                        <h2 className="title text-3xl md:text-4xl mb-10 text-primary">
                                             Fun Fact
                                         </h2>
                                         <p className="text-center text-xl md:text-2xl text-primary">

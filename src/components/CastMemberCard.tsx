@@ -10,7 +10,7 @@ interface CastMemberCardProps {
 
 function CastMemberCard({ member, isSelected, onMemberClick }: CastMemberCardProps) {
     return (
-        <FadeInOnScroll className="col-span-4 sm:col-span-2 md:col-span-1 flex flex-col items-center">
+        <FadeInOnScroll className="flex flex-col items-center">
             {isSelected ? (
                 <div
                     className="w-48 h-48 rounded-full"

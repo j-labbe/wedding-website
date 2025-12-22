@@ -7,4 +7,9 @@ export interface CastMember {
     funFact?: string;
 }
 
+export interface PairedMembers {
+    left: CastMember;
+    right: CastMember;
+}
+
 export type AnimationState = 'idle' | 'expanding' | 'expanded' | 'collapsing';
