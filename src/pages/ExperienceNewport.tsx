@@ -16,7 +16,6 @@ function ExperienceNewport() {
     const placesToEat = [
         '22 Bowens',
         'The Lobster Bar',
-        'Cupcake Charlies',
         'Clark Cooke House',
         'Midtown Oyster Bar',
         'Brick Alley Pub and Restaurant',
@@ -30,7 +29,7 @@ function ExperienceNewport() {
                 </FadeInOnScroll>
 
                 <FadeInOnScroll>
-                    <p className="subtitle font-laluxes text-xl md:text-2xl text-center mb-12 max-w-3xl mx-auto">
+                    <p className="subtitle font-laluxes-noligatures text-xl md:text-2xl text-center mb-12 max-w-3xl mx-auto">
                         Our favorite things to do in the sailing capital of the world!
                     </p>
                 </FadeInOnScroll>
