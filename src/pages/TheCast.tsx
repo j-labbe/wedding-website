@@ -180,22 +180,17 @@ function TheCast() {
                     const expandedTop = (window.innerHeight - finalSize) / 2;
 
                     const flipRotation = isFlipped ? 180 : 0;
+                    const COIN_THICKNESS = 16;
+                    const COIN_SLICES = 16;
 
                     return (
                         <>
                             {/* Background overlay */}
                             <div
                                 onClick={handleClose}
+                                className="fixed inset-0 bg-black/80 z-[1000] transition-opacity duration-600 ease-[cubic-bezier(0.4,0,0.2,1)]"
                                 style={{
-                                    position: 'fixed',
-                                    top: 0,
-                                    left: 0,
-                                    right: 0,
-                                    bottom: 0,
-                                    backgroundColor: 'rgba(0, 0, 0, 0.8)',
-                                    zIndex: 1000,
                                     opacity: shouldExpand ? 1 : 0,
-                                    transition: 'opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
                                     pointerEvents: shouldExpand ? 'auto' : 'none',
                                 }}
                             />
@@ -208,101 +203,63 @@ function TheCast() {
                                     }
                                 }}
                                 onTransitionEnd={handleTransitionEnd}
+                                className="fixed z-[1001] cursor-pointer overflow-hidden p-1 rounded-full bg-transparent"
                                 style={{
-                                    position: 'fixed',
                                     left: shouldExpand ? expandedLeft : collapsedLeft,
                                     top: shouldExpand ? expandedTop : collapsedTop,
                                     width: finalSize,
                                     height: finalSize,
-                                    zIndex: 1001,
-                                    cursor: 'pointer',
                                     perspective: '1000px',
-                                    padding: 2,
-                                    overflow: 'hidden',
                                     transform: shouldExpand ? 'scale(1)' : `scale(${collapsedScale})`,
                                     transition: 'left 0.6s cubic-bezier(0.4, 0, 0.2, 1), top 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
                                 }}
                             >
                                 <div
+                                    className="relative w-full h-full"
                                     style={{
-                                        position: 'relative',
-                                        width: '100%',
-                                        height: '100%',
                                         transformStyle: 'preserve-3d',
                                         transform: `rotateY(${flipRotation}deg)`,
                                         transition: 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
                                     }}
                                 >
                                     {/* Coin edge - multiple slices for thickness */}
-                                    {(() => {
-                                        const thickness = 16; // pixels
-                                        const slices = 16;
-                                        return [...Array(slices)].map((_, i) => (
-                                            <div
-                                                key={i}
-                                                style={{
-                                                    position: 'absolute',
-                                                    width: '100%',
-                                                    height: '100%',
-                                                    borderRadius: '50%',
-                                                    backgroundColor: 'var(--primary-color)',
-                                                    transform: `translateZ(${-thickness / 2 + (thickness * i) / (slices - 1)}px)`,
-                                                }}
-                                            />
-                                        ));
-                                    })()}
+                                    {[...Array(COIN_SLICES)].map((_, i) => (
+                                        <div
+                                            key={i}
+                                            className="absolute w-full h-full rounded-full bg-primary"
+                                            style={{
+                                                transform: `translateZ(${-COIN_THICKNESS / 2 + (COIN_THICKNESS * i) / (COIN_SLICES - 1)}px)`,
+                                            }}
+                                        />
+                                    ))}
 
                                     {/* Front - Image */}
                                     <div
+                                        className="absolute w-full h-full flex flex-col items-center justify-center bg-white rounded-full overflow-hidden border-9 md:border-10"
                                         style={{
-                                            position: 'absolute',
-                                            width: '100%',
-                                            height: '100%',
                                             backfaceVisibility: 'hidden',
                                             transform: 'translateZ(8px)',
-                                            display: 'flex',
-                                            flexDirection: 'column',
-                                            alignItems: 'center',
-                                            justifyContent: 'center',
-                                            backgroundColor: 'white',
-                                            borderRadius: '50%',
-                                            overflow: 'hidden',
-                                            border: '6px solid var(--primary-color)',
                                         }}
                                     >
                                         <img
                                             src={selectedMember.image.src}
                                             alt={selectedMember.name}
-                                            style={{
-                                                width: '100%',
-                                                height: '100%',
-                                                objectFit: 'cover',
-                                            }}
+                                            className="w-full h-full object-cover"
                                         />
                                     </div>
 
                                     {/* Back - Fun Fact */}
                                     <div
+                                        className="absolute w-full h-full flex flex-col items-center justify-center bg-[#ecf5f7] rounded-full p-[10%] border-7 md:border-8"
                                         style={{
-                                            position: 'absolute',
-                                            width: '100%',
-                                            height: '100%',
                                             backfaceVisibility: 'hidden',
                                             transform: 'rotateY(180deg) translateZ(8px)',
-                                            display: 'flex',
-                                            flexDirection: 'column',
-                                            alignItems: 'center',
-                                            justifyContent: 'center',
-                                            backgroundColor: '#ecf5f7',
-                                            borderRadius: '50%',
-                                            padding: '10%',
-                                            border: '6px solid var(--primary-color)',
                                         }}
                                     >
-                                        <h2 className="title text-3xl md:text-4xl mb-4" style={{ color: 'var(--primary-color)' }}>
+                                        <h2 className="title text-3xl md:text-4xl mb-4 text-primary">
                                             Fun Fact
                                         </h2>
-                                        <p className="text-center text-xl md:text-2xl" style={{ color: 'var(--primary-color)' }}>
+                                        <p className="text-center text-xl md:text-2xl text-primary">
                                             {selectedMember.funFact || 'No fun fact available yet!'}
                                         </p>
                                     </div>
