@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import ProfileImage from './ProfileImage';
 import FadeInOnScroll from './FadeInOnScroll';
 import type { CastMember } from '../types/cast';
@@ -6,9 +7,10 @@ interface CastMemberCardProps {
     member: CastMember;
     isSelected: boolean;
     onMemberClick: (member: CastMember, event: React.MouseEvent<HTMLDivElement>) => void;
+    overlay?: ReactNode;
 }
 
-function CastMemberCard({ member, isSelected, onMemberClick }: CastMemberCardProps) {
+function CastMemberCard({ member, isSelected, onMemberClick, overlay }: CastMemberCardProps) {
     return (
         <FadeInOnScroll className="flex flex-col items-center">
             {isSelected ? (
@@ -19,9 +21,10 @@ function CastMemberCard({ member, isSelected, onMemberClick }: CastMemberCardPro
             ) : (
                 <div
                     onClick={(e) => onMemberClick(member, e)}
-                    style={{ cursor: 'pointer' }}
+                    className="relative cursor-pointer"
                 >
                     <ProfileImage lqip={member.image} size="medium" alt={member.name} />
+                    {overlay}
                 </div>
             )}
             <p className="font-semibold text-lg md:text-xl mb-2">{member.name}</p>

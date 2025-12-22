@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import PageTransition from '../components/PageTransition';
 import FadeInOnScroll from '../components/FadeInOnScroll';
 import PairedRow from '../components/PairedRow';
+import TutorialHint from '../components/TutorialHint';
+import { shouldShowTutorial, markTutorialSeen } from '../utils/tutorialStorage';
 import type { CastMember, PairedMembers, AnimationState } from '../types/cast';
 import Jack from '../assets/img/jack.jpeg?lqip';
 import Sammy from "../assets/img/IMG_0068.JPG?lqip";
@@ -66,6 +68,19 @@ function TheCast() {
     const [initialRect, setInitialRect] = useState<DOMRect | null>(null);
     const [shouldExpand, setShouldExpand] = useState(false);
     const [scrollOffset, setScrollOffset] = useState(0);
+    const [showTutorial, setShowTutorial] = useState(false);
+
+    // Check if tutorial should be shown on mount
+    useEffect(() => {
+        if (shouldShowTutorial()) {
+            setShowTutorial(true);
+        }
+    }, []);
+
+    const dismissTutorial = () => {
+        setShowTutorial(false);
+        markTutorialSeen();
+    };
 
     // Track scroll to update coin position
     useEffect(() => {
@@ -91,6 +106,11 @@ function TheCast() {
 
     const handleMemberClick = (member: CastMember, event: React.MouseEvent<HTMLDivElement>) => {
         if (animationState !== 'idle') return; // Prevent clicks during animation
+
+        // Dismiss tutorial when user clicks a coin
+        if (showTutorial) {
+            dismissTutorial();
+        }
 
         const rect = event.currentTarget.getBoundingClientRect();
         setInitialRect(rect);
@@ -150,6 +170,7 @@ function TheCast() {
                                 selectedMemberName={selectedMember?.name}
                                 animationState={animationState}
                                 onMemberClick={handleMemberClick}
+                                leftOverlay={index === 0 ? <TutorialHint visible={showTutorial} /> : undefined}
                             />
                         ))}
 
