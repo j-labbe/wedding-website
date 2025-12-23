@@ -10,6 +10,7 @@ import Sammy from "../assets/img/IMG_0068.JPG?lqip";
 import Morgan from '../assets/img/Morgan.jpg?lqip';
 import JGRAY from "../assets/img/10AAE7B2-2471-46E1-B21D-000071BBF24A.JPEG?lqip";
 import Casey from "../assets/img/casey_pic.jpeg?lqip";
+import Eve from "../assets/img/IMG_6051.jpg?lqip";
 import Leo from "../assets/img/IMG_2423.jpg?lqip";
 import Luna from "../assets/img/IMG_1131.jpg?lqip";
 import Placeholder from '../assets/img/placeholder.png?lqip';
@@ -22,7 +23,7 @@ const TOM: CastMember = { name: 'Tom', role: 'Father of The Bride', image: Place
 const BRENDA: CastMember = { name: 'Brenda', role: 'Mother of The Groom', image: Placeholder, funFact: 'Add a fun fact about Brenda!' };
 const PAUL: CastMember = { name: 'Paul', role: 'Father of The Groom', image: Placeholder, funFact: 'Add a fun fact about Paul!' };
 const JULIANA: CastMember = { name: 'Juliana', role: 'Maid of Honor', image: JGRAY, funFact: 'I\'ve been to 100 concerts!' };
-const EVE: CastMember = { name: 'Eve', role: 'Bridesmaid', image: Placeholder, funFact: 'Add a fun fact about Eve!' };
+const EVE: CastMember = { name: 'Eve', role: 'Bridesmaid', image: Eve, funFact: 'I conquered the Philly Half Marathon!' };
 const MORGAN: CastMember = { name: 'Morgan', role: 'Bridesmaid', image: Morgan, funFact: 'I currently live in the Virgin Islands working as a dolphin trainer!' };
 const CASEY: CastMember = { name: 'Casey', role: 'Bridesmaid', image: Casey, funFact: 'My favorite animal is a groundhog!' };
 const BAILEY: CastMember = { name: 'Bailey', role: 'Bridesmaid', image: Placeholder, funFact: 'Add a fun fact about Bailey!' };
