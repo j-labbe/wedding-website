@@ -105,6 +105,8 @@
     --color-menu-text: #ecf5f7;
     --color-menu-action-bg: #1e3351;
     --color-menu-action-hover-bg: hsl(215, 46%, 15%);
+    --color-accent-gold: #c9a227;
+    --color-accent-gold-light: #d4b555;
 
     --breakpoint-xs: 30rem;
 }

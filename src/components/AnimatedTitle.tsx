@@ -34,8 +34,8 @@ const AnimatedTitle = ({ title, subtitle, location }: AnimatedTitleProps) => {
     if (!shouldAnimate) {
         return (
             <div className="text-center py-10">
-                <h1 className="title text-4xl md:text-5xl mt-5">{title}</h1>
-                <h2 className="subtitle font-laluxes text-xl md:text-2xl mt-5">{subtitle}</h2>
+                <h1 className="title text-4xl md:text-5xl mt-7">{title}</h1>
+                <h2 className="subtitle font-laluxes text-xl md:text-2xl mt-7">{subtitle}</h2>
                 <div className="flex flex-wrap items-center justify-center mt-3 mb-5 gap-x-3 gap-y-2">
                     <h2 className="subtitle font-laluxes text-xl md:text-2xl whitespace-nowrap">
                         {location.split(' • ')[0]}
@@ -59,85 +59,9 @@ const AnimatedTitle = ({ title, subtitle, location }: AnimatedTitleProps) => {
                 transition: 'opacity 0.3s ease-out',
             }}
         >
-            {/* SVG Filters */}
-            <svg className="absolute w-0 h-0">
-                <defs>
-                    {/* Ink bloom filter */}
-                    <filter id="ink-bloom" x="-100%" y="-100%" width="300%" height="300%">
-                        <feGaussianBlur in="SourceGraphic" stdDeviation="0" result="blur">
-                            <animate
-                                attributeName="stdDeviation"
-                                values="30;8;2;0"
-                                dur="2.5s"
-                                begin="0.3s"
-                                fill="freeze"
-                                calcMode="spline"
-                                keySplines="0.4 0 0.2 1; 0.4 0 0.2 1; 0.4 0 0.2 1"
-                            />
-                        </feGaussianBlur>
-
-                        <feMorphology in="blur" operator="dilate" radius="0" result="spread">
-                            <animate
-                                attributeName="radius"
-                                values="15;5;1;0"
-                                dur="2.5s"
-                                begin="0.3s"
-                                fill="freeze"
-                                calcMode="spline"
-                                keySplines="0.4 0 0.2 1; 0.4 0 0.2 1; 0.4 0 0.2 1"
-                            />
-                        </feMorphology>
-
-                        <feTurbulence
-                            type="fractalNoise"
-                            baseFrequency="0.04"
-                            numOctaves="4"
-                            result="noise"
-                        />
-                        <feDisplacementMap
-                            in="spread"
-                            in2="noise"
-                            scale="3"
-                            xChannelSelector="R"
-                            yChannelSelector="G"
-                            result="organic"
-                        />
-
-                        <feBlend in="organic" in2="SourceGraphic" mode="normal" />
-                    </filter>
-                </defs>
-            </svg>
-
-            {/* Ink drop splash effects */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none">
-                {[
-                    { x: '20%', y: '40%', delay: '0s', size: 200 },
-                    { x: '50%', y: '50%', delay: '0.1s', size: 300 },
-                    { x: '80%', y: '45%', delay: '0.2s', size: 180 },
-                    { x: '35%', y: '55%', delay: '0.15s', size: 150 },
-                    { x: '65%', y: '48%', delay: '0.25s', size: 220 },
-                ].map((drop, i) => (
-                    <div
-                        key={i}
-                        className="absolute rounded-full"
-                        style={{
-                            left: drop.x,
-                            top: drop.y,
-                            width: drop.size,
-                            height: drop.size,
-                            transform: 'translate(-50%, -50%)',
-                            background: `radial-gradient(circle, rgba(62, 77, 98, ${isAnimating ? 0 : 0.15}) 0%, transparent 70%)`,
-                            opacity: isAnimating ? 0 : 1,
-                            transition: `all 2s cubic-bezier(0.4, 0, 0.2, 1) ${drop.delay}`,
-                            filter: 'blur(20px)',
-                        }}
-                    />
-                ))}
-            </div>
-
-            {/* Main text with ink animation */}
+            {/* Main text with fade and blur animation */}
             <h1
-                className="title text-4xl md:text-5xl relative m-0 px-8 mt-5"
+                className="title text-4xl md:text-5xl relative m-0 px-8 mt-7"
                 style={{
                     color: 'var(--primary-color)',
                     opacity: isAnimating ? 1 : 0,
@@ -148,22 +72,7 @@ const AnimatedTitle = ({ title, subtitle, location }: AnimatedTitleProps) => {
                     transition: 'opacity 2.5s cubic-bezier(0.4, 0, 0.2, 1), filter 2.5s cubic-bezier(0.4, 0, 0.2, 1), transform 2.5s cubic-bezier(0.4, 0, 0.2, 1)',
                 }}
             >
-                {/* Ink diffusion layer */}
-                <span
-                    aria-hidden="true"
-                    className="absolute inset-0 flex items-center justify-center"
-                    style={{
-                        color: 'var(--primary-color)',
-                        filter: 'url(#ink-bloom)',
-                        opacity: isAnimating ? 0 : 0.6,
-                        transition: 'opacity 3s ease-out 1s',
-                    }}
-                >
-                    {title}
-                </span>
-
-                {/* Main crisp text */}
-                <span className="relative">{title}</span>
+                {title}
             </h1>
 
             {/* Date and location */}
@@ -174,7 +83,7 @@ const AnimatedTitle = ({ title, subtitle, location }: AnimatedTitleProps) => {
                     transition: 'opacity 1.5s ease-out 1.5s, transform 1.5s ease-out 1.5s',
                 }}
             >
-                <h2 className="subtitle font-laluxes text-xl md:text-2xl mt-5">
+                <h2 className="subtitle font-laluxes text-xl md:text-2xl mt-7">
                     {subtitle}
                 </h2>
                 <div className="flex flex-wrap items-center justify-center mt-3 mb-5 gap-x-3 gap-y-2">
