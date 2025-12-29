@@ -20,11 +20,13 @@ function PairedRow({ left, right, selectedMemberName, animationState, onMemberCl
                 onMemberClick={onMemberClick}
                 overlay={leftOverlay}
             />
-            <CastMemberCard
-                member={right}
-                isSelected={selectedMemberName === right.name && animationState !== 'idle'}
-                onMemberClick={onMemberClick}
-            />
+            {right && right.name !== 'Mystery' ? (
+                <CastMemberCard
+                    member={right}
+                    isSelected={selectedMemberName === right.name && animationState !== 'idle'}
+                    onMemberClick={onMemberClick}
+                />
+            ) : (null)}
         </div>
     );
 }

@@ -11,29 +11,30 @@ import Morgan from '../assets/img/Morgan.jpg?lqip';
 import JGRAY from "../assets/img/10AAE7B2-2471-46E1-B21D-000071BBF24A.JPEG?lqip";
 import Casey from "../assets/img/casey_pic.jpeg?lqip";
 import Eve from "../assets/img/IMG_6051.jpg?lqip";
+import Nick from "../assets/img/IMG_2972.jpeg?lqip";
 import Leo from "../assets/img/IMG_2423.jpg?lqip";
 import Luna from "../assets/img/IMG_1131.jpg?lqip";
 import Placeholder from '../assets/img/placeholder.png?lqip';
 
 // Individual cast members
-const SAMMY: CastMember = { name: 'Sammy', role: 'The Bride', image: Sammy, funFact: 'I have visited Disney over 10 times!' };
-const JACK: CastMember = { name: 'Jack', role: 'The Groom', image: Jack, funFact: 'I have flown a plane! I also built this website.' };
+const SAMMY: CastMember = { name: 'Sammy', role: 'The Bride', image: Sammy, funFact: 'Jack first met my Mom in palm tree swimtrunks in the middle of the winter! (He claims he had no clean laundry!)' };
+const JACK: CastMember = { name: 'Jack', role: 'The Groom', image: Jack, funFact: 'Sammy had her first drink in my freshman dorm room, a raspberry White Claw! (She called it a "raincloud in her head")' };
 const BETH: CastMember = { name: 'Beth', role: 'Mother of The Bride', image: Placeholder, funFact: 'Add a fun fact about Beth!' };
 const TOM: CastMember = { name: 'Tom', role: 'Father of The Bride', image: Placeholder, funFact: 'Add a fun fact about Tom!' };
 const BRENDA: CastMember = { name: 'Brenda', role: 'Mother of The Groom', image: Placeholder, funFact: 'Add a fun fact about Brenda!' };
 const PAUL: CastMember = { name: 'Paul', role: 'Father of The Groom', image: Placeholder, funFact: 'Add a fun fact about Paul!' };
-const JULIANA: CastMember = { name: 'Juliana', role: 'Maid of Honor', image: JGRAY, funFact: 'I\'ve been to 100 concerts!' };
+const JULIANA: CastMember = { name: 'Juliana', role: 'Maid of Honor', image: JGRAY, funFact: 'I\'ve been to 100 concerts! (Some of which I organized at Penn State!)' };
 const EVE: CastMember = { name: 'Eve', role: 'Bridesmaid', image: Eve, funFact: 'I conquered the Philly Half Marathon!' };
 const MORGAN: CastMember = { name: 'Morgan', role: 'Bridesmaid', image: Morgan, funFact: 'I currently live in the Virgin Islands working as a dolphin trainer!' };
-const CASEY: CastMember = { name: 'Casey', role: 'Bridesmaid', image: Casey, funFact: 'My favorite animal is a groundhog!' };
+const CASEY: CastMember = { name: 'Casey', role: 'Bridesmaid', image: Casey, funFact: 'My favorite animal is a groundhog! I even went to Punxsutawney once to celebrate Groundhog Day!' };
 const BAILEY: CastMember = { name: 'Bailey', role: 'Bridesmaid', image: Placeholder, funFact: 'Add a fun fact about Bailey!' };
 const SARA: CastMember = { name: 'Sara', role: 'Bridesmaid', image: Placeholder, funFact: 'Add a fun fact about Sara!' };
 const PETER: CastMember = { name: 'Peter', role: 'Best Man', image: Placeholder, funFact: 'Add a fun fact about Peter!' };
 const RYAN: CastMember = { name: 'Ryan', role: 'Groomsman', image: Placeholder, funFact: 'Add a fun fact about Ryan!' };
 const CHRIS: CastMember = { name: 'Chris', role: 'Groomsman', image: Placeholder, funFact: 'Add a fun fact about Chris!' };
 const TOMMY: CastMember = { name: 'Tommy', role: 'Groomsman', image: Placeholder, funFact: 'Add a fun fact about Tommy!' };
-const NICK: CastMember = { name: 'Nick', role: 'Groomsman', image: Placeholder, funFact: 'Add a fun fact about Nick!' };
-const MYSTERY: CastMember = { name: '???', role: 'Groomsman', image: Placeholder, funFact: 'Add a fun fact about ???!' };
+const NICK: CastMember = { name: 'Nick', role: 'Groomsman', image: Nick, funFact: 'I\'m a triplet with my two other brothers, Ryan and Andrew!' };
+const MYSTERY: CastMember = { name: 'Mystery', role: 'Groomsman', image: Placeholder, funFact: 'Add a fun fact about ???!' };
 const LUNA: CastMember = { name: 'Luna', role: 'Bun of Honor', image: Luna, funFact: 'I only eat locally grown lettuce!' };
 const LEO: CastMember = { name: 'Leo', role: 'Best Bun', image: Leo, funFact: 'I love giving fist bumps!' };
 
