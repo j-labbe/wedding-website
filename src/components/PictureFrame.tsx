@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 interface LQIPData {
-    placeholder: string
+    lqip: string
     src: string
     width: number
     height: number
@@ -50,7 +50,7 @@ const PictureFrame: React.FC<PictureFrameProps> = ({
             >
                 {/* LQIP placeholder */}
                 <img
-                    src={lqip.placeholder}
+                    src={lqip.lqip}
                     alt=""
                     className="absolute top-0 left-0 w-full h-full object-cover"
                     style={{ imageOrientation: 'from-image' }}

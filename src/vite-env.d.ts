@@ -9,7 +9,7 @@ declare module '*.svg?react' {
 declare module '*.jpg?lqip' {
     const content: {
         src: string
-        placeholder: string
+        lqip: string
         width: number
         height: number
     }
@@ -19,7 +19,7 @@ declare module '*.jpg?lqip' {
 declare module '*.jpeg?lqip' {
     const content: {
         src: string
-        placeholder: string
+        lqip: string
         width: number
         height: number
     }
@@ -29,7 +29,7 @@ declare module '*.jpeg?lqip' {
 declare module '*.JPEG?lqip' {
     const content: {
         src: string
-        placeholder: string
+        lqip: string
         width: number
         height: number
     }
@@ -39,7 +39,7 @@ declare module '*.JPEG?lqip' {
 declare module '*.JPG?lqip' {
     const content: {
         src: string
-        placeholder: string
+        lqip: string
         width: number
         height: number
     }
@@ -49,7 +49,17 @@ declare module '*.JPG?lqip' {
 declare module '*.png?lqip' {
     const content: {
         src: string
-        placeholder: string
+        lqip: string
+        width: number
+        height: number
+    }
+    export default content
+}
+
+declare module '*.PNG?lqip' {
+    const content: {
+        src: string
+        lqip: string
         width: number
         height: number
     }
