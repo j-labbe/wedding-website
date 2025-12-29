@@ -9,7 +9,7 @@ import Jack from '../assets/img/jack.jpeg?lqip';
 import Sammy from "../assets/img/IMG_0068.JPG?lqip";
 import Paul from "../assets/img/paul.JPG?lqip";
 import Brenda from '../assets/img/brenda.JPG?lqip';
-import Tom from '../assets/img/tom.JPG?lqip';
+import Tom from '../assets/img/tom.jpg?lqip';
 import Beth from '../assets/img/beth.JPG?lqip';
 import Morgan from '../assets/img/Morgan.jpg?lqip';
 import JGRAY from "../assets/img/10AAE7B2-2471-46E1-B21D-000071BBF24A.JPEG?lqip";
