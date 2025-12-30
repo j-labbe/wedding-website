@@ -26,7 +26,7 @@ import Placeholder from '../assets/img/placeholder.png?lqip';
 // Individual cast members
 const SAMMY: CastMember = { name: 'Sammy', role: 'The Bride', image: Sammy, funFact: 'Jack first met my Mom in palm tree swimtrunks in the middle of the winter! (He claims he had no clean laundry!)' };
 const JACK: CastMember = { name: 'Jack', role: 'The Groom', image: Jack, funFact: 'Sammy had her first drink in my freshman dorm room, a raspberry White Claw! (She called it a "raincloud in her head")' };
-const BETH: CastMember = { name: 'Beth', role: 'Mother of The Bride', image: Beth, funFact: 'Add a fun fact about Beth!' };
+const BETH: CastMember = { name: 'Beth', role: 'Mother of The Bride', image: Beth, funFact: 'I applied to Survivor and dream of being casted one day!' };
 const TOM: CastMember = { name: 'Tom', role: 'Father of The Bride', image: Tom, funFact: 'Add a fun fact about Tom!' };
 const BRENDA: CastMember = { name: 'Brenda', role: 'Mother of The Groom', image: Brenda, funFact: 'Add a fun fact about Brenda!' };
 const PAUL: CastMember = { name: 'Paul', role: 'Father of The Groom', image: Paul, funFact: 'Grillmaster.' };
