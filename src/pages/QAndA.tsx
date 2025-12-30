@@ -4,6 +4,8 @@ import FadeInOnScroll from '../components/FadeInOnScroll';
 import WaveDivider from '../components/WaveDivider';
 import AnchorBullet from '../components/AnchorBullet';
 import QAndAFloatingNav from '../components/QAndAFloatingNav';
+import DecorativeAnchor from '../components/DecorativeAnchor';
+import DecorativeDivider from '../components/DecorativeDivider';
 
 const faqData = [
     {
@@ -44,20 +46,6 @@ const faqData = [
             }
         ]
     },
-    // {
-    //     id: 'reception',
-    //     category: 'Reception & Dining',
-    //     questions: [
-    //         {
-    //             q: 'Will there be an open bar?',
-    //             a: 'Yes! Beer, wine, and cocktails will be provided.'
-    //         },
-    //         {
-    //             q: 'What if I have dietary restrictions?',
-    //             a: 'Please include any dietary needs when you RSVP, we will happily accommodate.'
-    //         }
-    //     ]
-    // },
     {
         id: 'lodging',
         category: 'Travel & Lodging',
@@ -142,18 +130,6 @@ function QAndA() {
                 <header className="pt-8 pb-8 px-6 text-center w-full">
                     <FadeInOnScroll className="max-w-3xl mx-auto">
                         <h1 className="title md:text-5xl/20 text-4xl/15 mb-4">Questions & Answers</h1>
-                        {/* Decorative anchor */}
-                        {/* <div className="flex items-center justify-center mt-6 opacity-40">
-                            <div className="h-px w-16 bg-gradient-to-r from-transparent to-accent-gold" />
-                            <svg width="24" height="24" viewBox="0 0 24 24" className="mx-4">
-                                <circle cx="12" cy="5" r="2" fill="none" className="stroke-primary-color" strokeWidth="1" />
-                                <line x1="12" y1="7" x2="12" y2="18" className="stroke-primary-color" strokeWidth="1" />
-                                <path d="M8 16 Q12 20 16 16" fill="none" className="stroke-primary-color" strokeWidth="1" />
-                                <line x1="6" y1="12" x2="18" y2="12" className="stroke-primary-color" strokeWidth="1" />
-                            </svg>
-                            <div className="h-px w-16 bg-gradient-to-l from-transparent to-accent-gold" />
-                        </div> */}
-
                     </FadeInOnScroll>
                 </header>
 
@@ -190,11 +166,6 @@ function QAndA() {
                                                     </p>
                                                 </div>
                                             </div>
-
-                                            {/* Subtle separator between questions */}
-                                            {/* {qIndex < section.questions.length - 1 && (
-                                                <div className="mt-10 mx-auto w-24 h-px bg-primary-color/20" />
-                                            )} */}
                                         </article>
                                     </FadeInOnScroll>
                                 ))}
@@ -204,16 +175,9 @@ function QAndA() {
 
                     {/* Footer decoration */}
                     <FadeInOnScroll className="mt-20 text-center">
-                        <div className="flex items-center justify-center mt-6 opacity-40">
-                            <div className="h-px w-16 bg-gradient-to-r from-transparent to-accent-gold" />
-                            <svg width="24" height="24" viewBox="0 0 24 24" className="mx-4">
-                                <circle cx="12" cy="5" r="2" fill="none" className="stroke-primary-color" strokeWidth="1" />
-                                <line x1="12" y1="7" x2="12" y2="18" className="stroke-primary-color" strokeWidth="1" />
-                                <path d="M8 16 Q12 20 16 16" fill="none" className="stroke-primary-color" strokeWidth="1" />
-                                <line x1="6" y1="12" x2="18" y2="12" className="stroke-primary-color" strokeWidth="1" />
-                            </svg>
-                            <div className="h-px w-16 bg-gradient-to-l from-transparent to-accent-gold" />
-                        </div>
+                        <DecorativeDivider className="mt-6">
+                            <DecorativeAnchor />
+                        </DecorativeDivider>
                     </FadeInOnScroll>
                 </main>
             </div>
