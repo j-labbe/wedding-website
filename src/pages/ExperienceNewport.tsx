@@ -15,11 +15,15 @@ import TheBreakers from '../assets/img/the-breakers.jpg?lqip';
 import CliffWalk from '../assets/img/npt-cw.jpg?lqip';
 import Thames from '../assets/img/npt-thames.jpg?lqip';
 import Sailing from '../assets/img/sailing.jpg?lqip';
+import BrentonPoint from '../assets/img/npt-brtn.jpg?lqip';
+import Buggy from '../assets/img/buggy.jpeg?lqip';
+import { ForkKnifeIcon, SailboatIcon } from '@phosphor-icons/react';
 
 const sectionsData = [
     {
         id: 'eat',
         category: 'Places to Eat',
+        navIcon: ForkKnifeIcon,
         items: [
             {
                 name: '22 Bowens',
@@ -56,6 +60,7 @@ const sectionsData = [
     {
         id: 'do',
         category: 'Things to Do',
+        navIcon: SailboatIcon,
         items: [
             {
                 name: 'Mansion Tours',
@@ -80,6 +85,18 @@ const sectionsData = [
                 description: 'Experience Newport\'s sailing heritage with a harbor tour or sailing excursion on Narragansett Bay. (Note: book in advance!)',
                 image: Sailing,
                 link: 'https://sightsailing.com'
+            },
+            {
+                name: 'Brenton Point State Park',
+                description: 'Enjoy stunning ocean views, picnicking, and kite flying at this beautiful state park located on the western tip of Newport. Food trucks are often visiting on weekends!',
+                image: BrentonPoint,
+                link: 'https://riparks.ri.gov/parks/brenton-point-state-park'
+            },
+            {
+                name: 'Rent a Beach Buggy',
+                description: 'Explore Newport in a fun and thrilling mini beach buggy!',
+                image: Buggy,
+                link: 'https://scooterworldri.com'
             }
         ]
     }
@@ -118,7 +135,7 @@ function ExperienceNewport() {
             <div className="flex justify-center flex-col items-center">
                 {/* Floating Navigation */}
                 <QAndAFloatingNav
-                    sections={sectionsData.map(s => ({ id: s.id, category: s.category }))}
+                    sections={sectionsData.map(s => ({ id: s.id, category: s.category, icon: s.navIcon }))}
                     activeSection={activeSection}
                     onNavigate={scrollToSection}
                 />
@@ -166,6 +183,8 @@ function ExperienceNewport() {
                             <DecorativeAnchor />
                         </DecorativeDivider>
                     </FadeInOnScroll>
+
+                    <br />
                 </main>
             </div>
         </PageTransition>

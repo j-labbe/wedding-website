@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 interface Section {
     id: string;
     category: string;
+    icon?: React.ElementType;
 }
 
 interface QAndAFloatingNavProps {
@@ -10,52 +11,6 @@ interface QAndAFloatingNavProps {
     activeSection: string;
     onNavigate: (id: string) => void;
 }
-
-const CompassIcon = ({ active, expanded }: { active: boolean; expanded: boolean }) => (
-    <svg
-        width="28"
-        height="28"
-        viewBox="0 0 28 28"
-        className="flex-shrink-0 transition-transform duration-300 ease-out"
-        style={{
-            transform: expanded ? 'scale(1.05)' : 'scale(1)',
-        }}
-    >
-        <circle
-            cx="14"
-            cy="14"
-            r="12"
-            fill="none"
-            className={`transition-all duration-300 ease-out ${active ? 'stroke-accent-gold' : 'stroke-primary-color'}`}
-            strokeWidth="1"
-            opacity="0.3"
-        />
-        <circle
-            cx="14"
-            cy="14"
-            r="2"
-            className={`transition-all duration-300 ease-out ${active ? 'fill-accent-gold' : 'fill-primary-color'}`}
-        />
-        <path
-            d="M14 4 L15.5 12 L14 14 L12.5 12 Z"
-            className={`transition-all duration-300 ease-out ${active ? 'fill-accent-gold' : 'fill-primary-color'}`}
-        />
-        <path
-            d="M14 24 L12.5 16 L14 14 L15.5 16 Z"
-            className={`transition-all duration-300 ease-out ${active ? 'fill-accent-gold' : 'fill-primary-color'}`}
-            opacity="0.5"
-        />
-        <path
-            d="M4 14 L12 12.5 L14 14 L12 15.5 Z"
-            className={`transition-all duration-300 ease-out ${active ? 'fill-accent-gold' : 'fill-primary-color'}`}
-            opacity="0.5"
-        />
-        <path
-            d="M24 14 L16 15.5 L14 14 L16 12.5 Z"
-            className={`transition-all duration-300 ease-out ${active ? 'fill-accent-gold' : 'fill-primary-color'}`}
-        />
-    </svg>
-);
 
 const QAndAFloatingNav = ({ sections, activeSection, onNavigate }: QAndAFloatingNavProps) => {
     const [navExpanded, setNavExpanded] = useState(false);
@@ -89,7 +44,7 @@ const QAndAFloatingNav = ({ sections, activeSection, onNavigate }: QAndAFloating
                                 className="group relative flex items-center justify-center"
                                 aria-label={section.category}
                             >
-                                <CompassIcon active={activeSection === section.id} expanded={false} />
+                                {section.icon && <section.icon className={`w-5 h-5 transition-colors duration-300 ${activeSection === section.id ? 'text-accent-gold' : 'text-primary-color'}`} aria-hidden="true" />}
                             </button>
                         ))}
                     </div>
@@ -134,7 +89,7 @@ const QAndAFloatingNav = ({ sections, activeSection, onNavigate }: QAndAFloating
                             >
                                 {section.category}
                             </span>
-                            <CompassIcon active={activeSection === section.id} expanded={navExpanded} />
+                            {section.icon && <section.icon className={`w-5 h-5 transition-colors duration-300 ${activeSection === section.id ? 'text-accent-gold' : 'text-primary-color'}`} aria-hidden="true" />}
                         </button>
                     ))}
                 </div>

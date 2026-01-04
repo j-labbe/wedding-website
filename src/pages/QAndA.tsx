@@ -6,11 +6,48 @@ import AnchorBullet from '../components/AnchorBullet';
 import QAndAFloatingNav from '../components/QAndAFloatingNav';
 import DecorativeAnchor from '../components/DecorativeAnchor';
 import DecorativeDivider from '../components/DecorativeDivider';
+import { ChurchIcon, BedIcon, ShirtFoldedIcon, GiftIcon } from "@phosphor-icons/react";
+
+// Simple markdown link parser - converts [text](url) to clickable links
+function parseMarkdownLinks(text: string): React.ReactNode {
+    const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
+    const parts: React.ReactNode[] = [];
+    let lastIndex = 0;
+    let match;
+
+    while ((match = linkRegex.exec(text)) !== null) {
+        // Add text before the link
+        if (match.index > lastIndex) {
+            parts.push(text.slice(lastIndex, match.index));
+        }
+        // Add the link
+        parts.push(
+            <a
+                key={match.index}
+                href={match[2]}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:opacity-70 transition-opacity"
+            >
+                {match[1]}
+            </a>
+        );
+        lastIndex = match.index + match[0].length;
+    }
+
+    // Add remaining text after the last link
+    if (lastIndex < text.length) {
+        parts.push(text.slice(lastIndex));
+    }
+
+    return parts.length > 0 ? parts : text;
+}
 
 const faqData = [
     {
         id: 'ceremony-reception',
         category: 'Ceremony & Reception',
+        navIcon: ChurchIcon,
         questions: [
             {
                 q: 'What time should I arrive?',
@@ -49,6 +86,7 @@ const faqData = [
     {
         id: 'lodging',
         category: 'Travel & Lodging',
+        navIcon: BedIcon,
         questions: [
             {
                 q: 'Are there hotel blocks?',
@@ -56,17 +94,18 @@ const faqData = [
             },
             {
                 q: 'What airports are closest?',
-                a: 'The closest airports are Providence (PVD) and Boston Logan (BOS).'
+                a: 'The closest airports are Providence - TF Green (PVD) and Boston - Logan (BOS).'
             },
             {
                 q: 'Will transportation be provided?',
-                a: 'A shuttle will run between the hotel block and the venue before and after the event. Times will be added closer to the date. If you are driving separately, the OceanCliff address is 65 Ridge Rd, Newport, RI 02840.'
+                a: 'A shuttle will run between the hotel block and the venue before and after the event. Times will be added closer to the date. If you are driving separately, the OceanCliff address is [65 Ridge Rd, Newport, RI 02840](https://www.google.com/maps?q=65+Ridge+Rd,+Newport,+RI+02840).'
             }
         ]
     },
     {
         id: 'attire',
-        category: 'Attire & Gifts',
+        category: 'Attire',
+        navIcon: ShirtFoldedIcon,
         questions: [
             {
                 q: 'What should I wear?',
@@ -79,7 +118,14 @@ const faqData = [
             {
                 q: 'What will the weather be like?',
                 a: 'Late June in Newport is typically warm and breezy, especially by the water.'
-            },
+            }
+        ]
+    },
+    {
+        id: "gifts",
+        category: "Gifts & Registry",
+        navIcon: GiftIcon,
+        questions: [
             {
                 q: 'Where are you registered?',
                 a: "Your presence is truly the best gift. If you'd like to browse our registry, it's linked [here](https://www.theknot.com/us/samantha-balkir-and-jack-labbe-2027-06-24/registry)."
@@ -121,7 +167,7 @@ function QAndA() {
             <div className="flex justify-center flex-col items-center">
                 {/* Floating Navigation */}
                 <QAndAFloatingNav
-                    sections={faqData.map(s => ({ id: s.id, category: s.category }))}
+                    sections={faqData.map(s => ({ id: s.id, category: s.category, icon: s.navIcon }))}
                     activeSection={activeSection}
                     onNavigate={scrollToSection}
                 />
@@ -162,7 +208,7 @@ function QAndA() {
                                                         {item.q}
                                                     </h3>
                                                     <p className="text-base leading-relaxed font-light opacity-80">
-                                                        {item.a}
+                                                        {parseMarkdownLinks(item.a)}
                                                     </p>
                                                 </div>
                                             </div>
@@ -179,6 +225,8 @@ function QAndA() {
                             <DecorativeAnchor />
                         </DecorativeDivider>
                     </FadeInOnScroll>
+
+                    <br />
                 </main>
             </div>
         </PageTransition>
