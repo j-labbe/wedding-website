@@ -86,6 +86,10 @@ const StickyHeader = () => {
     const endFontSize = 28
     const fontSize = lerp(startFontSize, endFontSize, progress)
 
+    // Q&A title needs smaller navbar size on mobile due to length
+    const isQandA = location.pathname === '/q-and-a'
+    const mobileVw = isQandA ? lerp(8, 6.5, progress) : 8
+
     // Calculate position
     // The title should:
     // 1. At progress=0: Be at its natural position (follow scroll)
@@ -153,7 +157,10 @@ const StickyHeader = () => {
                         exit={{ opacity: 0, scale: 0.98 }}
                         transition={titleTransition}
                         style={{
-                            fontSize: `clamp(20px, 8vw, ${fontSize}px)`,
+                            // On mobile, Q&A title shrinks more as it enters navbar
+                            fontSize: measurements.windowWidth < 768
+                                ? `clamp(20px, ${mobileVw}vw, ${fontSize}px)`
+                                : `clamp(20px, 8vw, ${fontSize}px)`,
                             // On mobile only, shift right as title moves into navbar to center between menu and edge
                             marginLeft: measurements.windowWidth < 768 ? `${lerp(0, 50, progress)}px` : 0,
                         }}
