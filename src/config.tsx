@@ -30,6 +30,7 @@ import Morgan from './assets/img/Morgan.jpg?lqip';
 import JGRAY from "./assets/img/10AAE7B2-2471-46E1-B21D-000071BBF24A.JPEG?lqip";
 import Casey from "./assets/img/casey_pic.jpeg?lqip";
 import Eve from "./assets/img/IMG_6051.jpg?lqip";
+import Bacon from "./assets/img/bacon.jpeg?lqip";
 import Tommy from "./assets/img/tommy.jpeg?lqip";
 import Nick from "./assets/img/IMG_2972.jpeg?lqip";
 import Bailey from "./assets/img/bailey.jpeg?lqip";
@@ -220,8 +221,8 @@ const config: SiteConfig = {
                         right: {
                             name: "Ryan",
                             role: "Groomsman",
-                            image: Placeholder,
-                            funFact: "Add a fun fact about Ryan!"
+                            image: Bacon,
+                            funFact: "I played hockey at Worcester State as a goalie!"
                         }
                     },
                     {
