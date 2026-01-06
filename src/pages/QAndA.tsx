@@ -6,7 +6,8 @@ import AnchorBullet from '../components/AnchorBullet';
 import QAndAFloatingNav from '../components/QAndAFloatingNav';
 import DecorativeAnchor from '../components/DecorativeAnchor';
 import DecorativeDivider from '../components/DecorativeDivider';
-import { ChurchIcon, BedIcon, ShirtFoldedIcon, GiftIcon } from "@phosphor-icons/react";
+import config from '../config';
+import type { QAndASection } from '../types/PageTypes';
 
 // Simple markdown link parser - converts [text](url) to clickable links
 function parseMarkdownLinks(text: string): React.ReactNode {
@@ -43,99 +44,11 @@ function parseMarkdownLinks(text: string): React.ReactNode {
     return parts.length > 0 ? parts : text;
 }
 
-const faqData = [
-    {
-        id: 'ceremony-reception',
-        category: 'Ceremony & Reception',
-        navIcon: ChurchIcon,
-        questions: [
-            {
-                q: 'What time should I arrive?',
-                a: 'Please arrive 15-20 minutes before the ceremony begins to get seated.'
-            },
-            {
-                q: 'Will the ceremony be indoors or outdoors?',
-                a: 'The ceremony will be outdoors (weather permitting) with the reception indoors.'
-            },
-            {
-                q: 'Can I take photos during the ceremony?',
-                a: 'We kindly request an unplugged ceremony. Phones and cameras away until the celebration begins!'
-            },
-            {
-                q: 'Will there be parking on-site?',
-                a: 'Yes, there is complimentary parking available at the venue.'
-            },
-            {
-                q: 'Can I bring a plus-one?',
-                a: 'If your invitation includes a guest, it will say "and guest." Otherwise, we are unable to accommodate additional guests.'
-            },
-            {
-                q: 'Are kids invited?',
-                a: 'We love your little ones, but our wedding will be adults-only.'
-            },
-            {
-                q: 'Will there be an open bar?',
-                a: 'Yes! Beer, wine, and cocktails will be provided.'
-            },
-            {
-                q: 'What if I have dietary restrictions?',
-                a: 'Please include any dietary needs when you RSVP, we will happily accommodate.'
-            }
-        ]
-    },
-    {
-        id: 'lodging',
-        category: 'Travel & Lodging',
-        navIcon: BedIcon,
-        questions: [
-            {
-                q: 'Are there hotel blocks?',
-                a: 'Yes! Details to be shared soon.'
-            },
-            {
-                q: 'What airports are closest?',
-                a: 'The closest airports are Providence - TF Green (PVD) and Boston - Logan (BOS).'
-            },
-            {
-                q: 'Will transportation be provided?',
-                a: 'A shuttle will run between the hotel block and the venue before and after the event. Times will be added closer to the date. If you are driving separately, the OceanCliff address is [65 Ridge Rd, Newport, RI 02840](https://www.google.com/maps?q=65+Ridge+Rd,+Newport,+RI+02840).'
-            }
-        ]
-    },
-    {
-        id: 'attire',
-        category: 'Attire',
-        navIcon: ShirtFoldedIcon,
-        questions: [
-            {
-                q: 'What should I wear?',
-                a: 'For the ladies, formal black-tie attire, long gowns, or elegant evening dresses are perfect. For the gents, black-tie optional, a tux or dark suit with a tie.'
-            },
-            {
-                q: "What's the dress code for the welcome event?",
-                a: 'Resort casual. Think sundresses, blouses, or polos with shorts or slacks.'
-            },
-            {
-                q: 'What will the weather be like?',
-                a: 'Late June in Newport is typically warm and breezy, especially by the water.'
-            }
-        ]
-    },
-    {
-        id: "gifts",
-        category: "Gifts & Registry",
-        navIcon: GiftIcon,
-        questions: [
-            {
-                q: 'Where are you registered?',
-                a: "Your presence is truly the best gift. If you'd like to browse our registry, it's linked [here](https://www.theknot.com/us/samantha-balkir-and-jack-labbe-2027-06-24/registry)."
-            }
-        ]
-    }
-];
-
 function QAndA() {
     const [activeSection, setActiveSection] = useState('ceremony');
+
+    const page = config.pages.find(p => p.id === "q-and-a");
+    const faqData = page?.content as QAndASection[] || [];
 
     const handleScroll = useCallback(() => {
         const sections = faqData.map(s => ({
@@ -151,6 +64,7 @@ function QAndA() {
                 break;
             }
         }
+        //eslint-disable-next-line
     }, []);
 
     useEffect(() => {

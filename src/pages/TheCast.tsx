@@ -5,69 +5,7 @@ import PairedRow from '../components/PairedRow';
 import TutorialHint from '../components/TutorialHint';
 import { shouldShowTutorial, markTutorialSeen } from '../utils/tutorialStorage';
 import type { CastMember, PairedMembers, AnimationState } from '../types/cast';
-import Jack from '../assets/img/jack.jpeg?lqip';
-import Sammy from "../assets/img/IMG_0068.JPG?lqip";
-import Paul from "../assets/img/paul.JPG?lqip";
-import Brenda from '../assets/img/brenda.JPG?lqip';
-import Tom from '../assets/img/tom.jpg?lqip';
-import Beth from '../assets/img/beth.jpg?lqip';
-import Morgan from '../assets/img/Morgan.jpg?lqip';
-import JGRAY from "../assets/img/10AAE7B2-2471-46E1-B21D-000071BBF24A.JPEG?lqip";
-import Casey from "../assets/img/casey_pic.jpeg?lqip";
-import Eve from "../assets/img/IMG_6051.jpg?lqip";
-import Tommy from "../assets/img/tommy.jpeg?lqip";
-import Nick from "../assets/img/IMG_2972.jpeg?lqip";
-import Bailey from "../assets/img/bailey.jpeg?lqip";
-import Sara from "../assets/img/sara.JPG?lqip";
-import Leo from "../assets/img/IMG_2423.jpg?lqip";
-import Luna from "../assets/img/IMG_1131.jpg?lqip";
-import Placeholder from '../assets/img/placeholder.png?lqip';
-
-// Individual cast members
-const SAMMY: CastMember = { name: 'Sammy', role: 'The Bride', image: Sammy, funFact: 'Jack first met my Mom in palm tree swimtrunks in the middle of the winter! (He claims he had no clean laundry!)' };
-const JACK: CastMember = { name: 'Jack', role: 'The Groom', image: Jack, funFact: 'Sammy had her first drink in my freshman dorm room, a raspberry White Claw! (She called it a "raincloud in her head")' };
-const BETH: CastMember = { name: 'Beth', role: 'Mother of The Bride', image: Beth, funFact: 'I applied to Survivor and dream of being casted one day!' };
-const TOM: CastMember = { name: 'Tom', role: 'Father of The Bride', image: Tom, funFact: 'I enjoy playing pickleball with family!' };
-const BRENDA: CastMember = { name: 'Brenda', role: 'Mother of The Groom', image: Brenda, funFact: 'Add a fun fact about Brenda!' };
-const PAUL: CastMember = { name: 'Paul', role: 'Father of The Groom', image: Paul, funFact: 'Grillmaster.' };
-const JULIANA: CastMember = { name: 'Juliana', role: 'Maid of Honor', image: JGRAY, funFact: 'I\'ve been to 100 concerts! (Some of which I organized at Penn State!)' };
-const EVE: CastMember = { name: 'Eve', role: 'Bridesmaid', image: Eve, funFact: 'I conquered the Philly Half Marathon!' };
-const MORGAN: CastMember = { name: 'Morgan', role: 'Bridesmaid', image: Morgan, funFact: 'I currently live in the Virgin Islands working as a dolphin trainer!' };
-const CASEY: CastMember = { name: 'Casey', role: 'Bridesmaid', image: Casey, funFact: 'My favorite animal is a groundhog! I even went to Punxsutawney once to celebrate Groundhog Day!' };
-const BAILEY: CastMember = { name: 'Bailey', role: 'Bridesmaid', image: Bailey, funFact: 'I play basketball for Gettysburg College!' };
-const SARA: CastMember = { name: 'Sara', role: 'Bridesmaid', image: Sara, funFact: 'I played youth hockey with my twin brother! Go bruins!' };
-const PETER: CastMember = { name: 'Peter', role: 'Best Man', image: Placeholder, funFact: 'Add a fun fact about Peter!' };
-const RYAN: CastMember = { name: 'Ryan', role: 'Groomsman', image: Placeholder, funFact: 'Add a fun fact about Ryan!' };
-const CHRIS: CastMember = { name: 'Chris', role: 'Groomsman', image: Placeholder, funFact: 'Add a fun fact about Chris!' };
-const TOMMY: CastMember = { name: 'Tommy', role: 'Groomsman', image: Tommy, funFact: 'I collect sneakers and comics!' };
-const NICK: CastMember = { name: 'Nick', role: 'Groomsman', image: Nick, funFact: 'I\'m a triplet with my two other brothers, Ryan and Andrew!' };
-const MYSTERY: CastMember = { name: 'Coming Soon', role: 'Groomsman', image: Placeholder, funFact: 'Add a fun fact about ???!' };
-const LUNA: CastMember = { name: 'Luna', role: 'Bun of Honor', image: Luna, funFact: 'I only eat locally grown lettuce!' };
-const LEO: CastMember = { name: 'Leo', role: 'Best Bun', image: Leo, funFact: 'I love giving fist bumps!' };
-
-const BRIDE_AND_GROOM: PairedMembers[] = [
-    { left: SAMMY, right: JACK },
-];
-
-const PARENTS: PairedMembers[] = [
-    { left: BETH, right: TOM },
-    { left: BRENDA, right: PAUL },
-];
-
-const WEDDING_PARTY: PairedMembers[] = [
-    { left: JULIANA, right: PETER },
-    { left: EVE, right: RYAN },
-    { left: MORGAN, right: CHRIS },
-    { left: CASEY, right: NICK },
-    { left: BAILEY, right: TOMMY },
-    { left: SARA, right: MYSTERY },
-];
-
-const PETS: PairedMembers[] = [
-    { left: LUNA, right: LEO },
-];
-
-const ALL_MEMBERS = [SAMMY, JACK, BETH, TOM, BRENDA, PAUL, JULIANA, EVE, MORGAN, CASEY, BAILEY, SARA, PETER, RYAN, CHRIS, TOMMY, NICK, MYSTERY, LUNA, LEO];
+import config from '../config';
 
 function TheCast() {
     const [selectedMember, setSelectedMember] = useState<CastMember | null>(null);
@@ -78,8 +16,19 @@ function TheCast() {
     const [scrollOffset, setScrollOffset] = useState(0);
     const [showTutorial, setShowTutorial] = useState(false);
 
+    const castPage = config.pages.find(p => p.id === 'the-cast');
+    const castMembers = castPage && castPage.name === 'The Cast' ? castPage.content.members : [];
+    
+    const ALL_MEMBERS: CastMember[] = castMembers.flatMap(pair => [pair.left, pair.right]);
+    
+    const BRIDE_AND_GROOM: PairedMembers[] = castMembers.filter(m => m.role === 'The Couple');
+    const PARENTS: PairedMembers[] = castMembers.filter(m => m.role === 'The Parents');
+    const WEDDING_PARTY: PairedMembers[] = castMembers.filter(m => m.role === 'Bridal Party & Groomsmen');
+    const PETS: PairedMembers[] = castMembers.filter(m => m.role === 'Pets');
+
     useEffect(() => {
         if (shouldShowTutorial()) {
+            //eslint-disable-next-line
             setShowTutorial(true);
         }
     }, []);
@@ -107,7 +56,7 @@ function TheCast() {
             const img = new Image();
             img.src = member.image.src;
         });
-    }, []);
+    }, [ALL_MEMBERS]);
 
     const handleMemberClick = (member: CastMember, event: React.MouseEvent<HTMLDivElement>) => {
         if (animationState !== 'idle') return;
