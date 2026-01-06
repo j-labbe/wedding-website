@@ -135,8 +135,9 @@ const StickyHeader = () => {
             />
 
             {/* Morphing title - starts large, shrinks into navbar on scroll */}
+            {/* On mobile, gradually offset to center between menu button and right edge */}
             <div
-                className="fixed left-0 right-0 flex justify-center items-center pointer-events-none px-16 md:px-4"
+                className="fixed left-0 right-0 flex justify-center items-center pointer-events-none"
                 style={{
                     top: 0,
                     height: `${currentY * 2}px`,
@@ -152,7 +153,9 @@ const StickyHeader = () => {
                         exit={{ opacity: 0, scale: 0.98 }}
                         transition={titleTransition}
                         style={{
-                            fontSize: `clamp(18px, 7.5vw, ${fontSize}px)`,
+                            fontSize: `clamp(20px, 7vw, ${fontSize}px)`,
+                            // On mobile only, shift right as title moves into navbar to center between menu and edge
+                            marginLeft: measurements.windowWidth < 768 ? `${lerp(0, 50, progress)}px` : 0,
                         }}
                     >
                         {title}
