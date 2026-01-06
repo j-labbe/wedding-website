@@ -5,9 +5,7 @@ function TheEvent() {
     return (
         <PageTransition>
             <div className="flex justify-center flex-col items-center px-5">
-                <h1 className="title md:text-5xl/20 text-4xl/15 mt-5 mb-5">The Event</h1>
-
-                <div className="max-w-2xl mx-auto my-10 space-y-10">
+                <div className="max-w-2xl mx-auto mt-5 space-y-10">
                     <div>
                         <h2 className="font-semibold text-2xl md:text-3xl mb-4 text-center">The Night Before</h2>
                         <p className="text-md md:text-lg leading-6 mb-3">

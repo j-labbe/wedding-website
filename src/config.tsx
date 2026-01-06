@@ -303,6 +303,13 @@ const config: SiteConfig = {
             }
         },
         {
+            id: "the-event",
+            name: "The Event",
+            content: {
+                title: "The Event"
+            }
+        },
+        {
             id: "experience-newport",
             name: "Experience Newport",
             content: [
@@ -390,7 +397,7 @@ const config: SiteConfig = {
         },
         {
             id: "q-and-a",
-            name: "Q & A",
+            name: "Questions & Answers",
             content: [
                 {
                     id: 'ceremony-reception',

@@ -1,9 +1,9 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
-// eslint-disable-next-line
-// @ts-ignore
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { MenuProvider } from './contexts/MenuContext'
 import Menu from './components/Menu/Menu'
+import StickyHeader from './components/StickyHeader'
+import ScrollToTop from './components/ScrollToTop'
 import CookieBanner from './components/CookieBanner'
 import MainLayout from './layouts/MainLayout'
 import Home from './pages/Home'
@@ -36,9 +36,13 @@ function AnimatedRoutes() {
 function App() {
     return (
         <BrowserRouter>
-            <Menu />
-            <AnimatedRoutes />
-            <CookieBanner />
+            <ScrollToTop />
+            <MenuProvider>
+                <StickyHeader />
+                <Menu />
+                <AnimatedRoutes />
+                <CookieBanner />
+            </MenuProvider>
         </BrowserRouter>
     )
 }

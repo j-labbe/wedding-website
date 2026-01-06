@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import PageTransition from '../components/PageTransition';
-import FadeInOnScroll from '../components/FadeInOnScroll';
 import PairedRow from '../components/PairedRow';
 import TutorialHint from '../components/TutorialHint';
 import { shouldShowTutorial, markTutorialSeen } from '../utils/tutorialStorage';
@@ -109,11 +108,7 @@ function TheCast() {
     return (
         <PageTransition>
             <div className="flex justify-center flex-col items-center px-5">
-                    <FadeInOnScroll>
-                        <h1 className="title md:text-5xl/20 text-4xl/15 mt-5 mb-5">The Cast</h1>
-                    </FadeInOnScroll>
-
-                    <div className="flex flex-col items-center max-w-4xl mx-auto my-10 space-y-6">
+                    <div className="flex flex-col items-center max-w-4xl mx-auto mt-5 space-y-6">
                         {/* Bride & Groom */}
                         {BRIDE_AND_GROOM.map((pair, index) => (
                             <PairedRow

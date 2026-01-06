@@ -52,13 +52,6 @@ function ExperienceNewport() {
                     onNavigate={scrollToSection}
                 />
 
-                {/* Header */}
-                <header className="pt-8 pb-8 px-6 text-center w-full">
-                    <FadeInOnScroll className="max-w-3xl mx-auto">
-                        <h1 className="title md:text-5xl/20 text-4xl/15 mb-4">Experience Newport</h1>
-                    </FadeInOnScroll>
-                </header>
-
                 {/* Main Content */}
                 <main className="max-w-4xl mx-auto px-6 pb-8 w-full">
                     {sectionsData.map((section, sectionIndex) => (

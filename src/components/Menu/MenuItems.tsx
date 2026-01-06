@@ -1,13 +1,10 @@
 import { useFeatureFlagEnabled } from 'posthog-js/react'
 import { Link } from 'react-router-dom'
+import { useMenu } from '../../hooks/useMenu'
 
-const MenuItems = ({
-    isOpen,
-    setIsOpen,
-}: {
-    isOpen: boolean
-    setIsOpen: (open: boolean) => void
-}) => {
+const MenuItems = () => {
+    const { isOpen, close } = useMenu()
+
     const items = [
         { name: 'Home', link: '/' },
         { name: 'Our Story', link: '/our-story' },
@@ -38,7 +35,7 @@ const MenuItems = ({
                         key={item.name}
                         to={item.link}
                         className={`${currentIndex === index ? 'bg-primary-menu-hover-bg' : 'bg-primary-color'} w-full py-5 font-sackers text-xl font-medium text-menu-text hover:bg-primary-menu-hover-bg transition-colors duration-300 pointer-cursor ${index % 2 === 0 ? 'md:border-r-[3px] md:border-menu-border' : ''} ${index < items.length - 2 ? 'md:border-b-[3px] md:border-menu-border' : ''}`}
-                        onClick={() => setIsOpen(false)}
+                        onClick={close}
                     >
                         {item.name}
                     </Link>
@@ -66,7 +63,7 @@ const MenuItems = ({
                                 key={item.name}
                                 href={item.link}
                                 className={className}
-                                onClick={() => setIsOpen(false)}
+                                onClick={close}
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
@@ -77,7 +74,7 @@ const MenuItems = ({
                                 key={item.name}
                                 to={item.link}
                                 className={className}
-                                onClick={() => setIsOpen(false)}
+                                onClick={close}
                             >
                                 {item.name}
                             </Link>

@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import PictureFrame from '../components/PictureFrame'
 import PageTransition from '../components/PageTransition'
-import AnimatedTitle from '../components/AnimatedTitle'
 
 import HeroPhoto from '../assets/img/BGP_4962.jpg?lqip'
 import GalleryPhoto1 from '../assets/img/BGP_4855.jpg?lqip'
@@ -53,11 +52,19 @@ function Home() {
 
     return (
         <PageTransition>
-            <AnimatedTitle
-                title="Sammy and Jack"
-                subtitle="June 24, 2027"
-                location="Newport, RI • OceanCliff Hotel"
-            />
+            {/* Subtitle and location - title is now handled by StickyHeader */}
+            <div className="text-center mb-8">
+                <h2 className="subtitle font-laluxes text-xl md:text-2xl mt-2">June 24, 2027</h2>
+                <div className="flex flex-wrap items-center justify-center mt-3 gap-x-3 gap-y-2">
+                    <h2 className="subtitle font-laluxes text-xl md:text-2xl whitespace-nowrap">
+                        Newport, RI
+                    </h2>
+                    <span className="subtitle font-laluxes text-xl md:text-2xl hidden xs:inline-block">•</span>
+                    <h2 className="subtitle font-laluxes text-xl md:text-2xl">
+                        OceanCliff Hotel
+                    </h2>
+                </div>
+            </div>
             <div
                 style={{
                     opacity: showHero ? 1 : 0,

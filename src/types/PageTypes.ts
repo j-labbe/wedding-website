@@ -32,6 +32,10 @@ export interface CastPageContent {
     members: (PairedMembers & { role: string })[];
 }
 
+export interface EventPageContent {
+    title: string;
+}
+
 export interface ExperienceNewportSection {
     id: string;
     category: string;
@@ -54,6 +58,7 @@ export interface BaseSitePage<TPageName extends string, TContent> {
 export type SitePageHome = BaseSitePage<"home", HomePageContent>;
 export type SitePageStory = BaseSitePage<"our-story", StoryPageContent>;
 export type SitePageCast = BaseSitePage<"the-cast", CastPageContent>;
+export type SitePageEvent = BaseSitePage<"the-event", EventPageContent>;
 export type SitePageExperienceNewport = BaseSitePage<"experience-newport", ExperienceNewportSection[]>;
 export type SitePageQAndA = BaseSitePage<"q-and-a", QAndASection[]>;
 
@@ -61,5 +66,6 @@ export type SitePage =
     | SitePageHome
     | SitePageStory
     | SitePageCast
+    | SitePageEvent
     | SitePageExperienceNewport
     | SitePageQAndA;
