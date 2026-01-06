@@ -153,7 +153,7 @@ const StickyHeader = () => {
                         exit={{ opacity: 0, scale: 0.98 }}
                         transition={titleTransition}
                         style={{
-                            fontSize: `clamp(20px, 7vw, ${fontSize}px)`,
+                            fontSize: `clamp(20px, 8vw, ${fontSize}px)`,
                             // On mobile only, shift right as title moves into navbar to center between menu and edge
                             marginLeft: measurements.windowWidth < 768 ? `${lerp(0, 50, progress)}px` : 0,
                         }}
