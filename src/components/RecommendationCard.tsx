@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import FadeInOnScroll from './FadeInOnScroll';
+import Lightbox from './Lightbox';
 
 interface LQIPData {
     lqip: string;
@@ -33,6 +34,7 @@ const AnchorBulletSmall = ({ className = '' }: { className?: string }) => (
 const RecommendationCard = ({ name, description, image, link, index }: RecommendationCardProps) => {
     const [isHovered, setIsHovered] = useState(false);
     const [isImageLoaded, setIsImageLoaded] = useState(false);
+    const [isLightboxOpen, setIsLightboxOpen] = useState(false);
     const isImageRight = index % 2 === 0; // Even index: text left, image right
 
     return (
@@ -59,8 +61,13 @@ const RecommendationCard = ({ name, description, image, link, index }: Recommend
                     />
                     {/* Image container */}
                     <div
-                        className="relative overflow-hidden rounded bg-primary-color/5"
+                        className="relative overflow-hidden rounded bg-primary-color/5 cursor-pointer"
                         style={{ aspectRatio: '16 / 10' }}
+                        onClick={() => setIsLightboxOpen(true)}
+                        role="button"
+                        tabIndex={0}
+                        onKeyDown={(e) => e.key === 'Enter' && setIsLightboxOpen(true)}
+                        aria-label={`View ${name} image in lightbox`}
                     >
                         {/* LQIP placeholder */}
                         <img
@@ -83,6 +90,12 @@ const RecommendationCard = ({ name, description, image, link, index }: Recommend
                             onLoad={() => setIsImageLoaded(true)}
                         />
                     </div>
+                    <Lightbox
+                        isOpen={isLightboxOpen}
+                        onClose={() => setIsLightboxOpen(false)}
+                        src={image.src}
+                        alt={name}
+                    />
                 </div>
 
                 {/* Text Section - always second on mobile, staggered on desktop */}

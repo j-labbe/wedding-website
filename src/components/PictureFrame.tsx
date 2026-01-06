@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Lightbox from './Lightbox'
 
 interface LQIPData {
     lqip: string
@@ -11,14 +12,17 @@ interface PictureFrameProps {
     lqip: LQIPData
     size?: 'small' | 'medium' | 'large' // small: square, medium: 4:3, large: 16:9
     alt?: string
+    disableLightbox?: boolean
 }
 
 const PictureFrame: React.FC<PictureFrameProps> = ({
     lqip,
     size = 'medium',
     alt = 'Picture',
+    disableLightbox = false,
 }) => {
     const [isLoaded, setIsLoaded] = useState(false)
+    const [isLightboxOpen, setIsLightboxOpen] = useState(false)
 
     const frameStyles = {
         small: {
@@ -41,31 +45,50 @@ const PictureFrame: React.FC<PictureFrameProps> = ({
         },
     }[size]
 
+    const handleClick = () => {
+        if (!disableLightbox) {
+            setIsLightboxOpen(true)
+        }
+    }
+
     return (
-        <div
-            className={`relative z-0 ${frameStyles.dimensions} ${frameStyles.outer} ${frameStyles.outer ? 'border-picture-frame-border bg-transparent' : ''}`}
-        >
+        <>
             <div
-                className={`relative overflow-hidden ${frameStyles.aspectRatio} ${frameStyles.inner} border-picture-frame-border`}
+                className={`relative z-0 ${frameStyles.dimensions} ${frameStyles.outer} ${frameStyles.outer ? 'border-picture-frame-border bg-transparent' : ''} ${!disableLightbox ? 'cursor-pointer' : ''}`}
+                onClick={handleClick}
+                role={!disableLightbox ? 'button' : undefined}
+                tabIndex={!disableLightbox ? 0 : undefined}
+                onKeyDown={!disableLightbox ? (e) => e.key === 'Enter' && handleClick() : undefined}
+                aria-label={!disableLightbox ? `View ${alt} in lightbox` : undefined}
             >
-                {/* LQIP placeholder */}
-                <img
-                    src={lqip.lqip}
-                    alt=""
-                    className="absolute top-0 left-0 w-full h-full object-cover"
-                    style={{ imageOrientation: 'from-image' }}
-                    aria-hidden="true"
-                />
-                {/* Full resolution image */}
-                <img
-                    src={lqip.src}
-                    alt={alt}
-                    className="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-500 ease-in-out"
-                    style={{ opacity: isLoaded ? 1 : 0, imageOrientation: 'from-image' }}
-                    onLoad={() => setIsLoaded(true)}
-                />
+                <div
+                    className={`relative overflow-hidden ${frameStyles.aspectRatio} ${frameStyles.inner} border-picture-frame-border`}
+                >
+                    {/* LQIP placeholder */}
+                    <img
+                        src={lqip.lqip}
+                        alt=""
+                        className="absolute top-0 left-0 w-full h-full object-cover"
+                        style={{ imageOrientation: 'from-image' }}
+                        aria-hidden="true"
+                    />
+                    {/* Full resolution image */}
+                    <img
+                        src={lqip.src}
+                        alt={alt}
+                        className="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-500 ease-in-out"
+                        style={{ opacity: isLoaded ? 1 : 0, imageOrientation: 'from-image' }}
+                        onLoad={() => setIsLoaded(true)}
+                    />
+                </div>
             </div>
-        </div>
+            <Lightbox
+                isOpen={isLightboxOpen}
+                onClose={() => setIsLightboxOpen(false)}
+                src={lqip.src}
+                alt={alt}
+            />
+        </>
     )
 }
 
