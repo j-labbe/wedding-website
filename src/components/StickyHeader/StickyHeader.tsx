@@ -81,14 +81,10 @@ const StickyHeader = () => {
         return () => window.removeEventListener('resize', measure)
     }, [location.pathname])
 
-    // Calculate font sizes
+    // Calculate font size (animates as user scrolls)
     const startFontSize = 48
-    const endFontSize = 28 // Larger navbar title
-    const startMobileFontSize = 36
-    const endMobileFontSize = 22 // Larger navbar title on mobile
-
+    const endFontSize = 28
     const fontSize = lerp(startFontSize, endFontSize, progress)
-    const mobileFontSize = lerp(startMobileFontSize, endMobileFontSize, progress)
 
     // Calculate position
     // The title should:
@@ -140,7 +136,7 @@ const StickyHeader = () => {
 
             {/* Morphing title - starts large, shrinks into navbar on scroll */}
             <div
-                className="fixed left-0 right-0 flex justify-center items-center pointer-events-none"
+                className="fixed left-0 right-0 flex justify-center items-center pointer-events-none px-16 md:px-4"
                 style={{
                     top: 0,
                     height: `${currentY * 2}px`,
@@ -156,7 +152,7 @@ const StickyHeader = () => {
                         exit={{ opacity: 0, scale: 0.98 }}
                         transition={titleTransition}
                         style={{
-                            fontSize: `clamp(${mobileFontSize}px, 4vw, ${fontSize}px)`,
+                            fontSize: `clamp(18px, 7.5vw, ${fontSize}px)`,
                         }}
                     >
                         {title}

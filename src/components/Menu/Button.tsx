@@ -15,7 +15,7 @@ const Button = () => {
                     <span></span>
                 </div>
             </div>
-            <h3 className="ml-3 mb-1 font-sackers text-base md:text-lg">Menu</h3>
+            <h3 className="ml-3 mb-1 font-sackers text-base md:text-lg hidden md:block">Menu</h3>
         </div>
     )
 }
