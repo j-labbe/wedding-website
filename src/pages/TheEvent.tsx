@@ -4,6 +4,9 @@ function TheEvent() {
 
     return (
         <PageTransition>
+            <article>
+                <title>The Event - Sammy and Jack</title>
+            </article>
             <div className="flex justify-center flex-col items-center px-5">
                 <div className="max-w-2xl mx-auto mt-5 space-y-10">
                     <div>

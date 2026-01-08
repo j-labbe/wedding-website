@@ -44,6 +44,9 @@ function ExperienceNewport() {
 
     return (
         <PageTransition>
+            <article>
+                <title>Experience Newport - Sammy and Jack</title>
+            </article>
             <div className="flex justify-center flex-col items-center">
                 {/* Floating Navigation */}
                 <QAndAFloatingNav

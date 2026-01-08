@@ -22,7 +22,7 @@ import TheEndAnimated from './components/TheEndAnimated';
 // The Cast
 import Jack from './assets/img/jack.jpeg?lqip';
 import Sammy from "./assets/img/IMG_0068.JPG?lqip";
-import Paul from "./assets/img/paul.JPG?lqip";
+import Paul from "./assets/img/paul.jpeg?lqip";
 import Brenda from './assets/img/brenda.JPG?lqip';
 import Tom from './assets/img/tom.jpg?lqip';
 import Beth from './assets/img/beth.jpg?lqip';
@@ -30,6 +30,7 @@ import Morgan from './assets/img/Morgan.jpg?lqip';
 import JGRAY from "./assets/img/10AAE7B2-2471-46E1-B21D-000071BBF24A.JPEG?lqip";
 import Casey from "./assets/img/casey_pic.jpeg?lqip";
 import Eve from "./assets/img/IMG_6051.jpg?lqip";
+import Peter from "./assets/img/peter.JPEG?lqip";
 import Bacon from "./assets/img/bacon.jpeg?lqip";
 import Tommy from "./assets/img/tommy.jpeg?lqip";
 import Nick from "./assets/img/IMG_2972.jpeg?lqip";
@@ -65,7 +66,7 @@ const config: SiteConfig = {
     pages: [
         {
             id: "home",
-            name: "Home",
+            name: "",
             content: {
                 title: "Sammy and Jack",
                 subtitle: "June 24, 2027",
@@ -186,13 +187,13 @@ const config: SiteConfig = {
                             name: "Brenda",
                             role: "Mother of the Groom",
                             image: Brenda,
-                            funFact: "Add a fun fact about Brenda!"
+                            funFact: "My first date with Paul was a Rolling Stones concert at Foxboro Stadium, center stage, row #10."
                         },
                         right: {
                             name: "Paul",
                             role: "Father of the Groom",
                             image: Paul,
-                            funFact: "Grillmaster."
+                            funFact: "After growing up playing hockey in a cold rink and later coaching my kid's teams, I now spend as much time as possible at the beach in Florida."
                         }
                     },
                     {
@@ -206,8 +207,8 @@ const config: SiteConfig = {
                         right: {
                             name: "Peter",
                             role: "Best Man",
-                            image: Placeholder,
-                            funFact: "Add a fun fact about Peter!"
+                            image: Peter,
+                            funFact: "I rescued a cat named Nate in 2022!"
                         }
                     },
                     {

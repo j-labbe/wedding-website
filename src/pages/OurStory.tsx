@@ -12,6 +12,9 @@ function OurStory() {
 
     return (
         <PageTransition>
+            <article>
+                <title>{page?.name} - Sammy and Jack</title>
+            </article>
             <div className="flex justify-center flex-col items-center px-5 mt-5">
                 {sections.map((section: React.JSX.Element, index: number) => (
                     <FadeInOnScroll key={index}>

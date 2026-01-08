@@ -78,6 +78,9 @@ function QAndA() {
 
     return (
         <PageTransition>
+            <article>
+                <title>Q & A - Sammy and Jack</title>
+            </article>
             <div className="flex justify-center flex-col items-center">
                 {/* Floating Navigation */}
                 <QAndAFloatingNav

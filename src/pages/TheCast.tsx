@@ -107,6 +107,9 @@ function TheCast() {
 
     return (
         <PageTransition>
+            <article>
+                <title>The Cast - Sammy and Jack</title>
+            </article>
             <div className="flex justify-center flex-col items-center px-5">
                     <div className="flex flex-col items-center max-w-4xl mx-auto mt-5 space-y-6">
                         {/* Bride & Groom */}
