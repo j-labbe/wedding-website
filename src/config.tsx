@@ -34,6 +34,7 @@ import Peter from "./assets/img/peter.JPEG?lqip";
 import Bacon from "./assets/img/bacon.jpeg?lqip";
 import Tommy from "./assets/img/tommy.jpeg?lqip";
 import Nick from "./assets/img/IMG_2972.jpeg?lqip";
+import Chris from "./assets/img/chris.jpg?lqip";
 import Bailey from "./assets/img/bailey.jpeg?lqip";
 import Sara from "./assets/img/sara.JPG?lqip";
 import Leo from "./assets/img/IMG_2423.jpg?lqip";
@@ -237,8 +238,8 @@ const config: SiteConfig = {
                         right: {
                             name: "Chris",
                             role: "Groomsman",
-                            image: Placeholder,
-                            funFact: "Add a fun fact about Chris!"
+                            image: Chris,
+                            funFact: "The Groom and I bonded over a very... crazy freshman roommate experience!"
                         }
                     },
                     {
@@ -277,13 +278,13 @@ const config: SiteConfig = {
                             name: "Sara",
                             role: "Bridesmaid",
                             image: Sara,
-                            funFact: "I played youth hockey with my twin brother! Go bruins!"
+                            funFact: "I played youth hockey with my twin brother! Go Bruins!"
                         },
                         right: {
-                            name: "Placeholder",
+                            name: "Harrison",
                             role: "Groomsman",
                             image: Placeholder,
-                            funFact: "Add a fun fact about Placeholder!"
+                            funFact: "I'm originally from Los Angeles!"
                         }
                     },
                     {

@@ -1,9 +1,12 @@
+import { useState } from 'react'
 import { useFeatureFlagEnabled } from 'posthog-js/react'
 import { Link } from 'react-router-dom'
 import { useMenu } from '../../hooks/useMenu'
+import ComingSoonModal from '../ComingSoonModal'
 
 const MenuItems = () => {
     const { isOpen, close } = useMenu()
+    const [isComingSoonOpen, setIsComingSoonOpen] = useState(false)
 
     const items = [
         { name: 'Home', link: '/' },
@@ -17,7 +20,7 @@ const MenuItems = () => {
     const rsvpEnabled = useFeatureFlagEnabled('rsvp-page')
 
     const actionItems = [
-        { name: 'Registry', link: 'https://www.theknot.com/us/samantha-balkir-and-jack-labbe-2027-06-24/registry', active: true },
+        { name: 'Registry', link: '#', active: true, comingSoon: true },
         { name: 'RSVP', link: '/rsvp', active: rsvpEnabled },
     ]
 
@@ -56,7 +59,22 @@ const MenuItems = () => {
                         const isLeftItem = index === 0
                         const isRightItem = index === 1
                         const isExternal = item.link.startsWith('http')
-                        const className = `bg-menu-action-bg w-full py-7 font-sackers text-xl font-medium text-menu-text hover:bg-menu-action-hover-bg transition-colors duration-300 pointer-cursor ${index % 2 === 0 && isTwoItems ? 'md:border-r-[3px] md:border-menu-border' : ''} ${isOnlyItem ? 'min-[1200px]:rounded-b-xl' : ''} ${isTwoItems && isLeftItem ? 'min-[1400px]:rounded-bl-lg' : ''} ${isTwoItems && isRightItem ? 'min-[1400px]:rounded-br-lg' : ''}`
+                        const className = `bg-menu-action-bg w-full py-7 font-sackers text-xl font-medium text-menu-text hover:bg-menu-action-hover-bg transition-colors duration-300 cursor-pointer ${index % 2 === 0 && isTwoItems ? 'md:border-r-[3px] md:border-menu-border' : ''} ${isOnlyItem ? 'min-[1200px]:rounded-b-xl' : ''} ${isTwoItems && isLeftItem ? 'min-[1400px]:rounded-bl-lg' : ''} ${isTwoItems && isRightItem ? 'min-[1400px]:rounded-br-lg' : ''}`
+
+                        if (item.comingSoon) {
+                            return (
+                                <button
+                                    key={item.name}
+                                    className={className}
+                                    onClick={() => {
+                                        close()
+                                        setIsComingSoonOpen(true)
+                                    }}
+                                >
+                                    {item.name}
+                                </button>
+                            )
+                        }
 
                         return isExternal ? (
                             <a
@@ -81,6 +99,10 @@ const MenuItems = () => {
                         )
                     })}
             </div>
+            <ComingSoonModal
+                isOpen={isComingSoonOpen}
+                onClose={() => setIsComingSoonOpen(false)}
+            />
         </div>
     )
 }
