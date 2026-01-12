@@ -35,6 +35,7 @@ import Bacon from "./assets/img/bacon.jpeg?lqip";
 import Tommy from "./assets/img/tommy.jpeg?lqip";
 import Nick from "./assets/img/IMG_2972.jpeg?lqip";
 import Chris from "./assets/img/chris.jpg?lqip";
+import Harrison from "./assets/img/harrison.jpg?lqip";
 import Bailey from "./assets/img/bailey.jpeg?lqip";
 import Sara from "./assets/img/sara.JPG?lqip";
 import Leo from "./assets/img/IMG_2423.jpg?lqip";
@@ -173,7 +174,7 @@ const config: SiteConfig = {
                             name: "Beth",
                             role: "Mother of the Bride",
                             image: Beth,
-                            funFact: "I applied to Survivor and dream of being casted one day!"
+                            funFact: "I applied to Survivor and dream of being cast one day!"
                         },
                         right: {
                             name: "Tom",
@@ -283,8 +284,8 @@ const config: SiteConfig = {
                         right: {
                             name: "Harrison",
                             role: "Groomsman",
-                            image: Placeholder,
-                            funFact: "I'm originally from Los Angeles!"
+                            image: Harrison,
+                            funFact: "I got a fist bump from Shaq during my high school graduation!"
                         }
                     },
                     {
