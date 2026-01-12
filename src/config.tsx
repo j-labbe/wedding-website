@@ -40,7 +40,6 @@ import Bailey from "./assets/img/bailey.jpeg?lqip";
 import Sara from "./assets/img/sara.JPG?lqip";
 import Leo from "./assets/img/IMG_2423.jpg?lqip";
 import Luna from "./assets/img/IMG_1131.jpg?lqip";
-import Placeholder from './assets/img/placeholder.png?lqip';
 
 // Experience Newport
 import Bowens from './assets/img/22b.jpg?lqip';
