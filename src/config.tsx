@@ -425,7 +425,7 @@ const config: SiteConfig = {
                         },
                         {
                             q: 'Can I bring a plus-one?',
-                            a: 'If your invitation includes a guest, it will say "and guest." Otherwise, we are unable to accommodate additional guests.'
+                            a: 'If your digital RSVP includes a guest, it will allow you to input their details. Otherwise, we are unable to accommodate additional guests.'
                         },
                         {
                             q: 'Are kids invited?',
@@ -486,7 +486,8 @@ const config: SiteConfig = {
                     questions: [
                         {
                             q: 'Where are you registered?',
-                            a: "Your presence is truly the best gift. If you'd like to browse our registry, it's linked [here](https://www.theknot.com/us/samantha-balkir-and-jack-labbe-2027-06-24/registry)."
+                            // a: "Your presence is truly the best gift. If you'd like to browse our registry, it's linked [here](https://www.theknot.com/us/samantha-balkir-and-jack-labbe-2027-06-24/registry)."
+                            a: "Your presence is truly the best gift. Our registry will be shared soon!"
                         }
                     ]
                 }
