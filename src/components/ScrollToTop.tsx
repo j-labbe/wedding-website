@@ -6,15 +6,18 @@ import { useLocation } from 'react-router-dom'
 const SCROLL_RESET_DELAY = 450 // ms
 
 const ScrollToTop = () => {
-    const { pathname } = useLocation()
+    const { pathname, hash } = useLocation()
 
     useEffect(() => {
+        // Skip scroll reset if there's a hash - let the page handle scrolling to the section
+        if (hash) return
+
         const timer = setTimeout(() => {
             window.scrollTo(0, 0)
         }, SCROLL_RESET_DELAY)
 
         return () => clearTimeout(timer)
-    }, [pathname])
+    }, [pathname, hash])
 
     return null
 }

@@ -6,8 +6,10 @@ import QAndAFloatingNav from '../components/QAndAFloatingNav';
 import RecommendationCard from '../components/RecommendationCard';
 import DecorativeAnchor from '../components/DecorativeAnchor';
 import DecorativeDivider from '../components/DecorativeDivider';
+import LodgingSectionContent from '../components/LodgingSectionContent';
 import config from '../config';
 import type { ExperienceNewportSection } from '../types/PageTypes';
+import { parseMarkdownBold } from '../utils/parseMarkdown';
 
 
 function ExperienceNewport() {
@@ -38,6 +40,29 @@ function ExperienceNewport() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, [handleScroll]);
 
+    // Handle initial hash navigation on page load
+    useEffect(() => {
+        const hash = window.location.hash.slice(1); // Remove the '#'
+        if (hash) {
+            // Delay to ensure DOM is fully rendered and page animations complete
+            const timeoutId = setTimeout(() => {
+                const element = document.getElementById(hash);
+                if (element) {
+                    const headerOffset = 100; // Account for sticky header + some padding
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.scrollY - headerOffset;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                    setActiveSection(hash);
+                }
+            }, 500); // Wait for page transition animation to complete
+            return () => clearTimeout(timeoutId);
+        }
+    }, []);
+
     const scrollToSection = (id: string) => {
         document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
     };
@@ -67,21 +92,40 @@ function ExperienceNewport() {
                                     {section.category}
                                 </h2>
                                 <div className="mt-3 mx-auto w-12 h-0.5 bg-gradient-to-r from-transparent via-accent-gold to-transparent" />
+                                {section.lodgingDescription && (
+                                    <p className="mt-4 text-base max-w-2xl mx-auto opacity-70">
+                                        {parseMarkdownBold(section.lodgingDescription)}
+                                    </p>
+                                )}
                             </FadeInOnScroll>
 
-                            {/* Items */}
-                            <div className="space-y-16">
-                                {section.items.map((item, itemIndex) => (
-                                    <RecommendationCard
-                                        key={itemIndex}
-                                        name={item.name}
-                                        description={item.description}
-                                        image={item.image}
-                                        link={item.link}
-                                        index={itemIndex}
-                                    />
-                                ))}
-                            </div>
+                            {/* Items - for eat/do sections */}
+                            {section.items && (
+                                <div className="space-y-16">
+                                    {section.items.map((item, itemIndex) => (
+                                        <RecommendationCard
+                                            key={itemIndex}
+                                            name={item.name}
+                                            description={item.description}
+                                            image={item.image}
+                                            link={item.link}
+                                            index={itemIndex}
+                                        />
+                                    ))}
+                                </div>
+                            )}
+
+                            {/* Lodging - for stay section */}
+                            {section.lodging && (
+                                <div className="space-y-8">
+                                    {section.lodging.map((lodgingSection, lodgingIndex) => (
+                                        <LodgingSectionContent
+                                            key={lodgingIndex}
+                                            section={lodgingSection}
+                                        />
+                                    ))}
+                                </div>
+                            )}
                         </section>
                     ))}
 

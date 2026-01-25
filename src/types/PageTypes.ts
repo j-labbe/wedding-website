@@ -40,7 +40,9 @@ export interface ExperienceNewportSection {
     id: string;
     category: string;
     navIcon: React.ForwardRefExoticComponent<IconProps>;
-    items: ExperienceNewportItems[];
+    items?: ExperienceNewportItems[];
+    lodging?: LodgingSection[];
+    lodgingDescription?: string;
 }
 
 export interface QAndASection {
@@ -49,6 +51,24 @@ export interface QAndASection {
     navIcon: React.ForwardRefExoticComponent<IconProps>;
     questions: QAndAItems[];
 }
+
+export interface LodgingSection {
+    sectionId: string;
+    title: string;
+    description: string;
+    hotels: HotelOption[];
+}
+
+export interface HotelOption {
+    name: string;
+    link: string;
+    description: string;
+    price: string;
+    address: string;
+    image?: LQIPImage;
+}
+
+/*******************************************************************/
 
 export interface BaseSitePage<TPageName extends string, TContent> {
     id: TPageName;

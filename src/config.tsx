@@ -55,6 +55,14 @@ import BrentonPoint from './assets/img/npt-brtn.jpg?lqip';
 import Buggy from './assets/img/buggy.jpeg?lqip';
 import { ForkKnifeIcon, SailboatIcon } from '@phosphor-icons/react';
 
+// Lodging
+import NewportMarriott from './assets/img/newport-marriott.jpg?lqip';
+import HammetsHotel from './assets/img/hammetts-hotel.jpg?lqip';
+import HotelViking from './assets/img/hotel-viking.jpg?lqip';
+import WyndhamHotel from './assets/img/wyndham-hotel.jpeg?lqip';
+import WayfinderHotel from './assets/img/wayfinder-hotel.jpg?lqip';
+import NewportBeachHotel from './assets/img/newport-beach-hotel.jpg?lqip';
+
 // Q & A
 import { ChurchIcon, BedIcon, ShirtFoldedIcon, GiftIcon } from "@phosphor-icons/react";
 
@@ -395,6 +403,82 @@ const config: SiteConfig = {
                             link: 'https://scooterworldri.com'
                         }
                     ]
+                },
+                {
+                    id: 'stay',
+                    category: 'Where to Stay',
+                    navIcon: BedIcon,
+                    lodgingDescription: "While OceanCliff does offer accomodations, they will be very limited and we encourage exploring the recommended options below. **Note: Book early, as Newport is a popular destination in June.**",
+                    lodging: [
+                        {
+                            sectionId: "newport-downtown",
+                            title: "Newport (Downtown)",
+                            description: "Staying here puts you right in the heart of the action with easy walkable access to shops, restaurants, and activities. It's about a 10-15 minute drive to OceanCliff. Most hotels offer parking, but be sure to check in advance.",
+                            hotels: [
+                                {
+                                    name: "Newport Marriott",
+                                    link: "https://www.marriott.com/en-us/hotels/pvdlw-newport-marriott-hotel-and-spa/overview/",
+                                    description: "Great location near downtown Newport with modern amenities. Avg. $650/night",
+                                    price: "$$$$",
+                                    address: "25 America's Cup Ave, Newport, RI 02840",
+                                    image: NewportMarriott,
+                                },
+                                {
+                                    name: "Hammetts Hotel",
+                                    link: "https://www.hammettshotel.com/",
+                                    description: "Located within the wharfs, this hotel provides instant access to downtown attractions. Sammy and Jack stayed here on their engagement trip and loved it! Avg. $570/night",
+                                    price: "$$$",
+                                    address: "4 Commercial Wharf, Newport, RI 02840",
+                                    image: HammetsHotel,
+                                },
+                                {
+                                    name: "Hotel Viking",
+                                    link: "https://www.hotelviking.com/",
+                                    description: "A short walk from the wharfs, located in the historic district near the Tennis Hall of Fame, Audrain Auto Museum, and the Newport Mansions. Avg. $530/night",
+                                    price: "$$$",
+                                    address: "1 Bellevue Ave, Newport, RI 02840",
+                                    image: HotelViking,
+                                }
+                            ]
+                        },
+                        {
+                            sectionId: "middletown-portsmouth",
+                            title: "Middletown & Portsmouth",
+                            description: "These neighboring towns offer a quieter stay while still close to Newport. It's a short drive to OceanCliff and downtown. Hotels in these areas are often more budget-friendly.",
+                            hotels: [
+                                {
+                                    name: "Wyndham Newport Hotel",
+                                    link: "https://www.wyndhamnewportri.com",
+                                    description: "A comfortable hotel with great amenities and easy access to both Newport and Middletown. Avg. $300/night",
+                                    price: "$$",
+                                    address: "240 Aquidneck Ave, Middletown, RI 02842",
+                                    image: WyndhamHotel,
+                                },
+                                {
+                                    name: "Wayfinder Newport",
+                                    link: "https://www.wayfindernewport.com",
+                                    description: "A modern hotel with stylish rooms and quiet surroundings. Avg. $360/night",
+                                    price: "$$",
+                                    address: "151 Admiral Kalbfus Rd, Newport, RI 02840",
+                                    image: WayfinderHotel,
+                                },
+                                {
+                                    name: "Newport Beach Hotel & Suites",
+                                    link: "https://www.newportbeachhotelandsuites.com",
+                                    description: "Close to the beach with beautiful views and a relaxing atmosphere. Avg. $310/night",
+                                    price: "$$",
+                                    address: "One Wave Avenue, Middletown, RI 02842",
+                                    image: NewportBeachHotel,
+                                }
+                            ]
+                        },
+                        {
+                            sectionId: "other",
+                            title: "Airbnb, VRBO, and Other Rentals",
+                            description: "Additional lodging options can be found on Airbnb, VRBO, and other vacation rental platforms. This is a great option for larger groups or families who want to stay together. Be sure to book early, as Newport is a popular destination in June!",
+                            hotels: []
+                        }
+                    ]
                 }
             ]
         },
@@ -448,15 +532,11 @@ const config: SiteConfig = {
                     questions: [
                         {
                             q: 'Are there hotel blocks?',
-                            a: 'Yes! Details to be shared soon.'
+                            a: 'We have chosen not to set up a hotel block in order to give our guests the flexibility to explore the many lodging options Newport has to offer. Please see the [lodging details](/experience-newport#stay) for our recommendations.'
                         },
                         {
                             q: 'What airports are closest?',
                             a: 'The closest airports are Providence - TF Green (PVD) and Boston - Logan (BOS).'
-                        },
-                        {
-                            q: 'Will transportation be provided?',
-                            a: 'A shuttle will run between the hotel block and the venue before and after the event. Times will be added closer to the date. If you are driving separately, the OceanCliff address is [65 Ridge Rd, Newport, RI 02840](https://www.google.com/maps?q=65+Ridge+Rd,+Newport,+RI+02840).'
                         }
                     ]
                 },
