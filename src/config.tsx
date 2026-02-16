@@ -33,13 +33,13 @@ import Eve from "./assets/img/IMG_6051.jpg?lqip";
 import Peter from "./assets/img/peter.JPEG?lqip";
 import Bacon from "./assets/img/bacon.jpeg?lqip";
 import Tommy from "./assets/img/tommy.jpeg?lqip";
-import Nick from "./assets/img/IMG_2972.jpeg?lqip";
 import Chris from "./assets/img/chris.jpg?lqip";
 import Harrison from "./assets/img/harrison.jpg?lqip";
 import Bailey from "./assets/img/bailey.jpeg?lqip";
 import Sara from "./assets/img/sara.JPG?lqip";
 import Leo from "./assets/img/IMG_2423.jpg?lqip";
 import Luna from "./assets/img/IMG_1131.jpg?lqip";
+import Placeholder from "./assets/img/placeholder.png?lqip";
 
 // Experience Newport
 import Bowens from './assets/img/22b.jpg?lqip';
@@ -249,6 +249,7 @@ const config: SiteConfig = {
                             image: Chris,
                             funFact: "The Groom and I bonded over a very... crazy freshman roommate experience!"
                         }
+                        
                     },
                     {
                         role: "Bridal Party & Groomsmen",
@@ -257,21 +258,6 @@ const config: SiteConfig = {
                             role: "Bridesmaid",
                             image: Casey,
                             funFact: "My favorite animal is a groundhog! I even went to Punxsutawney once to celebrate Groundhog Day!"
-                        },
-                        right: {
-                            name: "Nick",
-                            role: "Groomsman",
-                            image: Nick,
-                            funFact: "I'm a triplet with my two other brothers, Ryan and Andrew!"
-                        }
-                    },
-                    {
-                        role: "Bridal Party & Groomsmen",
-                        left: {
-                            name: "Bailey",
-                            role: "Bridesmaid",
-                            image: Bailey,
-                            funFact: "I play basketball for Gettysburg College!"
                         },
                         right: {
                             name: "Tommy",
@@ -283,16 +269,32 @@ const config: SiteConfig = {
                     {
                         role: "Bridal Party & Groomsmen",
                         left: {
-                            name: "Sara",
+                            name: "Bailey",
                             role: "Bridesmaid",
-                            image: Sara,
-                            funFact: "I played youth hockey with my twin brother! Go Bruins!"
+                            image: Bailey,
+                            funFact: "I play basketball for Gettysburg College!"
                         },
                         right: {
                             name: "Harrison",
                             role: "Groomsman",
                             image: Harrison,
                             funFact: "I got a fist bump from Shaq during my high school graduation!"
+                        }
+                        
+                    },
+                    {
+                        role: "Bridal Party & Groomsmen",
+                        left: {
+                            name: "Sara",
+                            role: "Bridesmaid",
+                            image: Sara,
+                            funFact: "I played youth hockey with my twin brother! Go Bruins!"
+                        },
+                        right: {
+                            name: "TBD",
+                            role: "Groomsman",
+                            image: Placeholder,
+                            funFact: ""
                         }
                     },
                     {
