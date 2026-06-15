@@ -291,7 +291,7 @@ const config: SiteConfig = {
                             funFact: "I played youth hockey with my twin brother! Go Bruins!"
                         },
                         right: {
-                            name: "TBD",
+                            name: "Mystery",
                             role: "Groomsman",
                             image: Placeholder,
                             funFact: ""
