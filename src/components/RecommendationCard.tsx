@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import FadeInOnScroll from './FadeInOnScroll';
 import Lightbox from './Lightbox';
-import { AnchorSimpleIcon as AnchorIcon } from '@phosphor-icons/react';
 
 interface LQIPData {
     lqip: string;
@@ -98,7 +97,6 @@ const RecommendationCard = ({ name, description, image, link, index }: Recommend
                             isImageRight ? '' : 'md:flex-row-reverse'
                         }`}
                     >
-                        {/* <AnchorIcon className="w-4 h-4 text-accent-gold" /> */}
                         <h3 className="font-laluxes text-xl md:text-2xl tracking-wide">
                             {name}
                         </h3>
