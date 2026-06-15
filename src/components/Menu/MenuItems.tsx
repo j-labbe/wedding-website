@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useMenu } from '../../hooks/useMenu'
 import ComingSoonModal from '../ComingSoonModal'
 import { useFeatureFlagStore } from '../../contexts/FeatureFlagStore'
+import RSVPMenuButton from './RSVPMenuButton'
 
 const MenuItems = () => {
     const { isOpen, close } = useMenu()
@@ -77,18 +78,35 @@ const MenuItems = () => {
                             )
                         }
 
-                        return isExternal ? (
-                            <a
-                                key={item.name}
-                                href={item.link}
-                                className={className}
-                                onClick={close}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                {item.name}
-                            </a>
-                        ) : (
+                        if (isExternal) {
+                            return (
+                                <a
+                                    key={item.name}
+                                    href={item.link}
+                                    className={className}
+                                    onClick={close}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    {item.name}
+                                </a>
+                            )
+                        }
+
+                        if (isRSVP) {
+                            return (
+                                <RSVPMenuButton
+                                    key={item.name}
+                                    to={item.link}
+                                    className={className}
+                                    onClick={close}
+                                >
+                                    {item.name}
+                                </RSVPMenuButton>
+                            )
+                        }
+
+                        return (
                             <Link
                                 key={item.name}
                                 to={item.link}
