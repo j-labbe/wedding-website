@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import { useFeatureFlagEnabled } from 'posthog-js/react'
 import { Link } from 'react-router-dom'
 import { useMenu } from '../../hooks/useMenu'
 import ComingSoonModal from '../ComingSoonModal'
+import { useFeatureFlagStore } from '../../contexts/FeatureFlagStore'
 
 const MenuItems = () => {
     const { isOpen, close } = useMenu()
@@ -17,7 +17,7 @@ const MenuItems = () => {
         { name: 'Q & A', link: '/q-and-a' },
     ]
 
-    const rsvpEnabled = useFeatureFlagEnabled('rsvp-page')
+    const { rsvpEnabled } = useFeatureFlagStore();
 
     const actionItems = [
         { name: 'Registry', link: '#', active: true, comingSoon: true },
@@ -59,7 +59,8 @@ const MenuItems = () => {
                         const isLeftItem = index === 0
                         const isRightItem = index === 1
                         const isExternal = item.link.startsWith('http')
-                        const className = `bg-menu-action-bg w-full py-7 font-sackers text-xl font-medium text-menu-text hover:bg-menu-action-hover-bg transition-colors duration-300 cursor-pointer ${index % 2 === 0 && isTwoItems ? 'md:border-r-[3px] md:border-menu-border' : ''} ${isOnlyItem ? 'min-[1200px]:rounded-b-xl' : ''} ${isTwoItems && isLeftItem ? 'min-[1400px]:rounded-bl-lg' : ''} ${isTwoItems && isRightItem ? 'min-[1400px]:rounded-br-lg' : ''}`
+                        const isRSVP = item.link === '/rsvp'
+                        const className = `${isRSVP ? 'bg-accent-gold text-primary-color hover:bg-accent-gold-light' : 'bg-menu-action-bg'} w-full py-7 font-sackers text-xl font-medium text-menu-text hover:${isRSVP ? 'bg-accent-gold-light' : 'bg-menu-action-hover-bg'} transition-colors duration-300 cursor-pointer ${index % 2 === 0 && isTwoItems ? 'md:border-r-[3px] md:border-menu-border' : ''} ${isOnlyItem ? 'min-[1200px]:rounded-b-xl' : ''} ${isTwoItems && isLeftItem ? 'min-[1400px]:rounded-bl-lg' : ''} ${isTwoItems && isRightItem ? 'min-[1400px]:rounded-br-lg' : ''}`
 
                         if (item.comingSoon) {
                             return (

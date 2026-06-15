@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import Turnstile from 'react-turnstile'
+import { submitContactForm } from '../utils/api'
 
 interface ContactModalProps {
     isOpen: boolean
@@ -49,24 +50,12 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
         }
 
         setIsSubmitting(true)
-        
-        try {
-            const submitUrl = window.location.hostname === 'localhost' ? 'http://localhost:8787' : 'https://api.sammyandjack.com';
-            
-            const response = await fetch(`${submitUrl}/contactSubmission`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    ...formData,
-                    turnstileToken,
-                }),
-            })
 
-            if (!response.ok) {
-                throw new Error('Failed to send message')
-            }
+        try {
+            await submitContactForm({
+                ...formData,
+                turnstileToken,
+            })
 
             setSubmitResult('success')
 
