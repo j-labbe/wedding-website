@@ -2,10 +2,8 @@ import { useState, useEffect, useCallback } from 'react';
 import PageTransition from '../components/PageTransition';
 import FadeInOnScroll from '../components/FadeInOnScroll';
 import WaveDivider from '../components/WaveDivider';
-import AnchorBullet from '../components/AnchorBullet';
+import { AnchorIcon } from '@phosphor-icons/react';
 import QAndAFloatingNav from '../components/QAndAFloatingNav';
-import DecorativeAnchor from '../components/DecorativeAnchor';
-import DecorativeDivider from '../components/DecorativeDivider';
 import config from '../config';
 import type { QAndASection } from '../types/PageTypes';
 
@@ -100,7 +98,6 @@ function QAndA() {
                                 <h2 className="font-laluxes text-2xl md:text-3xl tracking-wide">
                                     {section.category}
                                 </h2>
-                                <div className="mt-3 mx-auto w-12 h-0.5 bg-gradient-to-r from-transparent via-accent-gold to-transparent" />
                             </FadeInOnScroll>
 
                             {/* Questions */}
@@ -112,7 +109,7 @@ function QAndA() {
                                     >
                                         <article className="group">
                                             <div className="flex items-start">
-                                                <AnchorBullet />
+                                                <AnchorIcon className="w-4 h-4 mr-3 mt-2 text-accent-gold" />
                                                 <div className="flex-1">
                                                     <h3 className="font-laluxes-noligatures text-lg md:text-xl mb-3 leading-relaxed">
                                                         {item.q}
@@ -128,14 +125,15 @@ function QAndA() {
                             </div>
                         </section>
                     ))}
-
-                    {/* Footer decoration */}
-                    <FadeInOnScroll className="mt-20 text-center">
-                        <DecorativeDivider className="mt-6">
-                            <DecorativeAnchor />
-                        </DecorativeDivider>
-                    </FadeInOnScroll>
-
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
                     <br />
                 </main>
             </div>

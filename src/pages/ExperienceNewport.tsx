@@ -4,8 +4,6 @@ import FadeInOnScroll from '../components/FadeInOnScroll';
 import WaveDivider from '../components/WaveDivider';
 import QAndAFloatingNav from '../components/QAndAFloatingNav';
 import RecommendationCard from '../components/RecommendationCard';
-import DecorativeAnchor from '../components/DecorativeAnchor';
-import DecorativeDivider from '../components/DecorativeDivider';
 import LodgingSectionContent from '../components/LodgingSectionContent';
 import config from '../config';
 import type { ExperienceNewportSection } from '../types/PageTypes';
@@ -91,7 +89,6 @@ function ExperienceNewport() {
                                 <h2 className="font-laluxes text-2xl md:text-3xl tracking-wide">
                                     {section.category}
                                 </h2>
-                                <div className="mt-3 mx-auto w-12 h-0.5 bg-gradient-to-r from-transparent via-accent-gold to-transparent" />
                                 {section.lodgingDescription && (
                                     <p className="mt-4 text-base max-w-2xl mx-auto opacity-70">
                                         {parseMarkdownBold(section.lodgingDescription)}
@@ -128,13 +125,6 @@ function ExperienceNewport() {
                             )}
                         </section>
                     ))}
-
-                    {/* Footer decoration */}
-                    <FadeInOnScroll className="mt-20 text-center">
-                        <DecorativeDivider>
-                            <DecorativeAnchor />
-                        </DecorativeDivider>
-                    </FadeInOnScroll>
 
                     <br />
                 </main>

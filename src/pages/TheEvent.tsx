@@ -1,7 +1,4 @@
 import PageTransition from '../components/PageTransition';
-import DecorativeAnchor from '../components/DecorativeAnchor';
-import DecorativeDivider from '../components/DecorativeDivider';
-import FadeInOnScroll from '../components/FadeInOnScroll';
 
 function TheEvent() {
 
@@ -47,12 +44,6 @@ function TheEvent() {
                         </div>
                     </div>
                 </div>
-
-                <FadeInOnScroll className="mt-20 text-center">
-                    <DecorativeDivider>
-                        <DecorativeAnchor />
-                    </DecorativeDivider>
-                </FadeInOnScroll>
             </div>
         </PageTransition>
     )

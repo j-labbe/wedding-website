@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import FadeInOnScroll from './FadeInOnScroll';
 import Lightbox from './Lightbox';
+import { AnchorSimpleIcon as AnchorIcon } from '@phosphor-icons/react';
 
 interface LQIPData {
     lqip: string;
@@ -16,20 +17,6 @@ interface RecommendationCardProps {
     link?: string;
     index: number;
 }
-
-const AnchorBulletSmall = ({ className = '' }: { className?: string }) => (
-    <svg
-        width="18"
-        height="18"
-        viewBox="0 0 24 24"
-        className={`flex-shrink-0 opacity-40 ${className}`}
-    >
-        <circle cx="12" cy="5" r="2" fill="none" className="stroke-accent-gold" strokeWidth="1.5" />
-        <line x1="12" y1="7" x2="12" y2="20" className="stroke-accent-gold" strokeWidth="1.5" />
-        <path d="M8 18 Q12 22 16 18" fill="none" className="stroke-accent-gold" strokeWidth="1.5" />
-        <line x1="6" y1="14" x2="18" y2="14" className="stroke-accent-gold" strokeWidth="1.5" />
-    </svg>
-);
 
 const RecommendationCard = ({ name, description, image, link, index }: RecommendationCardProps) => {
     const [isHovered, setIsHovered] = useState(false);
@@ -54,6 +41,7 @@ const RecommendationCard = ({ name, description, image, link, index }: Recommend
                     <div
                         className="absolute inset-0 border border-accent-gold/60 rounded transition-all duration-300 ease-out"
                         style={{
+                            backgroundColor: isHovered ? 'var(--color-accent-gold)' : 'transparent',
                             transform: isHovered
                                 ? `translate(${isImageRight ? '16px' : '-16px'}, 16px)`
                                 : `translate(${isImageRight ? '12px' : '-12px'}, 12px)`,
@@ -110,7 +98,7 @@ const RecommendationCard = ({ name, description, image, link, index }: Recommend
                             isImageRight ? '' : 'md:flex-row-reverse'
                         }`}
                     >
-                        <AnchorBulletSmall />
+                        {/* <AnchorIcon className="w-4 h-4 text-accent-gold" /> */}
                         <h3 className="font-laluxes text-xl md:text-2xl tracking-wide">
                             {name}
                         </h3>

@@ -81,7 +81,7 @@ const QAndAFloatingNav = ({ sections, activeSection, onNavigate }: QAndAFloating
                                     activeSection === section.id ? 'text-accent-gold' : 'text-primary-color'
                                 }`}
                                 style={{
-                                    maxWidth: navExpanded ? '160px' : '0px',
+                                    maxWidth: navExpanded ? '240px' : '0px',
                                     opacity: navExpanded ? 1 : 0,
                                     marginRight: navExpanded ? '12px' : '0px',
                                     transition: `max-width 400ms cubic-bezier(0.4, 0, 0.2, 1) ${index * 30}ms, opacity 300ms ease-out ${navExpanded ? 100 + index * 30 : 0}ms, margin-right 400ms cubic-bezier(0.4, 0, 0.2, 1)`,

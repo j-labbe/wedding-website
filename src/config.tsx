@@ -17,7 +17,7 @@ import SurvivorPic from "./assets/img/IMG_4230.jpeg?lqip";
 import LastPic from "./assets/img/IMG_3656.jpeg?lqip";
 import CityHallPic from "./assets/img/IMG_6515.JPG?lqip";
 import FutureMrsLabbe from "./assets/img/DSC08734.JPG?lqip";
-import TheEndAnimated from './components/TheEndAnimated';
+import TheEnd from "./assets/img/TheEnd.svg?react";
 
 // The Cast
 import Jack from './assets/img/jack.jpeg?lqip';
@@ -149,8 +149,8 @@ const config: SiteConfig = {
                         <PictureFrame lqip={LastPic} size="small" alt="Sammy and Jack" />
                         <PictureFrame lqip={FutureMrsLabbe} size="small" alt="Sammy and Jack" />
                     </div>,
-
-                    <TheEndAnimated className="w-full mt-10" style={{ color: "#b6babbff", maxWidth: "12rem" }} />
+                    
+                    <TheEnd className="mt-10" style={{ width: "12rem", maxWidth: "100%", color: "#b6babbff" }} />
                 ]
             }
         },
@@ -549,7 +549,7 @@ const config: SiteConfig = {
                     questions: [
                         {
                             q: 'What should I wear?',
-                            a: 'For the ladies, formal black-tie attire, long gowns, or elegant evening dresses are perfect. For the gents, black-tie optional, a tux or dark suit with a tie.'
+                            a: 'For the ladies: black-tie attire – floor-length gowns. For the gentlemen: black tie preferred – tuxedo, or a dark suit with a tie.'
                         },
                         {
                             q: "What's the dress code for the welcome event?",
