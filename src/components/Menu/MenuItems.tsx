@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useFeatureFlagEnabled } from 'posthog-js/react'
+// import { useFeatureFlagEnabled } from 'posthog-js/react'
 import { Link } from 'react-router-dom'
 import { useMenu } from '../../hooks/useMenu'
 import ComingSoonModal from '../ComingSoonModal'
