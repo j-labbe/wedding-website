@@ -17,7 +17,7 @@ const MenuItems = () => {
         { name: 'Q & A', link: '/q-and-a' },
     ]
 
-    const rsvpEnabled = useFeatureFlagEnabled('rsvp-page')
+    // const rsvpEnabled = useFeatureFlagEnabled('rsvp-page')
 
     const actionItems = [
         { name: 'Registry', link: '#', active: true, comingSoon: true },
