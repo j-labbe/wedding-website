@@ -21,7 +21,7 @@ const MenuItems = () => {
 
     const actionItems = [
         { name: 'Registry', link: '#', active: true, comingSoon: true },
-        { name: 'RSVP', link: '/rsvp', active: rsvpEnabled },
+        { name: 'RSVP', link: '/rsvp', active: false }, // TODO: Enable when RSVP page is ready
     ]
 
     const activePage = window.location.pathname
