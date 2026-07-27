@@ -56,7 +56,7 @@ import Buggy from './assets/img/buggy.jpeg?lqip'
 import { ForkKnifeIcon, SailboatIcon } from '@phosphor-icons/react'
 
 // Lodging
-import NewportMarriott from './assets/img/newport-marriott.jpg?lqip'
+// import NewportMarriott from './assets/img/newport-marriott.jpg?lqip'
 import HammetsHotel from './assets/img/hammetts-hotel.jpg?lqip'
 import HotelViking from './assets/img/hotel-viking.jpg?lqip'
 import WyndhamHotel from './assets/img/wyndham-hotel.jpeg?lqip'

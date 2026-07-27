@@ -4,13 +4,9 @@ import type { LodgingSection } from '../types/PageTypes'
 
 interface LodgingSectionContentProps {
     section: LodgingSection
-    minCols: Number
 }
 
-function LodgingSectionContent({
-    section,
-    minCols,
-}: LodgingSectionContentProps) {
+function LodgingSectionContent({ section }: LodgingSectionContentProps) {
     return (
         <div className="mb-12">
             <FadeInOnScroll>
