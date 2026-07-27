@@ -1,69 +1,69 @@
-import { useState, useEffect, useCallback } from 'react';
-import PageTransition from '../components/PageTransition';
-import FadeInOnScroll from '../components/FadeInOnScroll';
-import WaveDivider from '../components/WaveDivider';
-import QAndAFloatingNav from '../components/QAndAFloatingNav';
-import RecommendationCard from '../components/RecommendationCard';
-import LodgingSectionContent from '../components/LodgingSectionContent';
-import config from '../config';
-import type { ExperienceNewportSection } from '../types/PageTypes';
-import { parseMarkdownBold } from '../utils/parseMarkdown';
-
+import { useState, useEffect, useCallback } from 'react'
+import PageTransition from '../components/PageTransition'
+import FadeInOnScroll from '../components/FadeInOnScroll'
+import WaveDivider from '../components/WaveDivider'
+import QAndAFloatingNav from '../components/QAndAFloatingNav'
+import RecommendationCard from '../components/RecommendationCard'
+import LodgingSectionContent from '../components/LodgingSectionContent'
+import config from '../config'
+import type { ExperienceNewportSection } from '../types/PageTypes'
+import { parseMarkdownBold } from '../utils/parseMarkdown'
 
 function ExperienceNewport() {
-    const [activeSection, setActiveSection] = useState('eat');
+    const [activeSection, setActiveSection] = useState('eat')
 
-    const page = config.pages.find(p => p.id === "experience-newport");
-    const sectionsData = page?.content as ExperienceNewportSection[] || [];
+    const page = config.pages.find((p) => p.id === 'experience-newport')
+    const sectionsData = (page?.content as ExperienceNewportSection[]) || []
 
     const handleScroll = useCallback(() => {
-        const sections = sectionsData.map(s => ({
+        const sections = sectionsData.map((s) => ({
             id: s.id,
-            offset: document.getElementById(s.id)?.offsetTop || 0
-        }));
+            offset: document.getElementById(s.id)?.offsetTop || 0,
+        }))
 
-        const scrollPos = window.scrollY + 200;
+        const scrollPos = window.scrollY + 200
 
         for (let i = sections.length - 1; i >= 0; i--) {
             if (scrollPos >= sections[i].offset) {
-                setActiveSection(sections[i].id);
-                break;
+                setActiveSection(sections[i].id)
+                break
             }
         }
         //eslint-disable-next-line
-    }, []);
+    }, [])
 
     useEffect(() => {
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, [handleScroll]);
+        window.addEventListener('scroll', handleScroll)
+        return () => window.removeEventListener('scroll', handleScroll)
+    }, [handleScroll])
 
     // Handle initial hash navigation on page load
     useEffect(() => {
-        const hash = window.location.hash.slice(1); // Remove the '#'
+        const hash = window.location.hash.slice(1) // Remove the '#'
         if (hash) {
             // Delay to ensure DOM is fully rendered and page animations complete
             const timeoutId = setTimeout(() => {
-                const element = document.getElementById(hash);
+                const element = document.getElementById(hash)
                 if (element) {
-                    const headerOffset = 100; // Account for sticky header + some padding
-                    const elementPosition = element.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.scrollY - headerOffset;
-                    
+                    const headerOffset = 100 // Account for sticky header + some padding
+                    const elementPosition = element.getBoundingClientRect().top
+                    const offsetPosition =
+                        elementPosition + window.scrollY - headerOffset
+
                     window.scrollTo({
                         top: offsetPosition,
-                        behavior: 'smooth'
-                    });
-                    setActiveSection(hash);
+                        behavior: 'smooth',
+                    })
+                    setActiveSection(hash)
                 }
-            }, 500); // Wait for page transition animation to complete
-            return () => clearTimeout(timeoutId);
+            }, 500) // Wait for page transition animation to complete
+            return () => clearTimeout(timeoutId)
         }
-    }, []);
+    }, [])
 
     const scrollToSection = (id: string) => {
-        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-    };
+        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+    }
 
     return (
         <PageTransition>
@@ -73,7 +73,11 @@ function ExperienceNewport() {
             <div className="flex justify-center flex-col items-center">
                 {/* Floating Navigation */}
                 <QAndAFloatingNav
-                    sections={sectionsData.map(s => ({ id: s.id, category: s.category, icon: s.navIcon }))}
+                    sections={sectionsData.map((s) => ({
+                        id: s.id,
+                        category: s.category,
+                        icon: s.navIcon,
+                    }))}
                     activeSection={activeSection}
                     onNavigate={scrollToSection}
                 />
@@ -81,7 +85,11 @@ function ExperienceNewport() {
                 {/* Main Content */}
                 <main className="max-w-4xl mx-auto px-6 pb-8 w-full">
                     {sectionsData.map((section, sectionIndex) => (
-                        <section key={section.id} id={section.id} className="scroll-mt-8">
+                        <section
+                            key={section.id}
+                            id={section.id}
+                            className="scroll-mt-8"
+                        >
                             {sectionIndex > 0 && <WaveDivider />}
 
                             {/* Section Header */}
@@ -91,7 +99,9 @@ function ExperienceNewport() {
                                 </h2>
                                 {section.lodgingDescription && (
                                     <p className="mt-4 text-base max-w-2xl mx-auto opacity-70">
-                                        {parseMarkdownBold(section.lodgingDescription)}
+                                        {parseMarkdownBold(
+                                            section.lodgingDescription
+                                        )}
                                     </p>
                                 )}
                             </FadeInOnScroll>
@@ -115,12 +125,15 @@ function ExperienceNewport() {
                             {/* Lodging - for stay section */}
                             {section.lodging && (
                                 <div className="space-y-8">
-                                    {section.lodging.map((lodgingSection, lodgingIndex) => (
-                                        <LodgingSectionContent
-                                            key={lodgingIndex}
-                                            section={lodgingSection}
-                                        />
-                                    ))}
+                                    {section.lodging.map(
+                                        (lodgingSection, lodgingIndex) => (
+                                            <LodgingSectionContent
+                                                key={lodgingIndex}
+                                                section={lodgingSection}
+                                                minCols={2}
+                                            />
+                                        )
+                                    )}
                                 </div>
                             )}
                         </section>
@@ -130,7 +143,7 @@ function ExperienceNewport() {
                 </main>
             </div>
         </PageTransition>
-    );
+    )
 }
 
-export default ExperienceNewport;
+export default ExperienceNewport
