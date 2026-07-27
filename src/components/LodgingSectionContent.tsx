@@ -19,7 +19,7 @@ function LodgingSectionContent({ section }: LodgingSectionContentProps) {
             </FadeInOnScroll>
             {section.hotels.length > 0 ? (
                 <div
-                    className={`grid gap-4 md:grid-cols-2 lg:grid-cols-${Math.min(Math.max(section.hotels.length, 2), 3)}`}
+                    className={`grid gap-4 md:grid-cols-2 ${section.hotels.length >= 3 ? 'lg:grid-cols-3' : 'lg:grid-cols-2'}`}
                 >
                     {section.hotels.map((hotel, index) => (
                         <LodgingCard key={index} hotel={hotel} />
