@@ -7,7 +7,7 @@ import RecommendationCard from '../components/RecommendationCard'
 import LodgingSectionContent from '../components/LodgingSectionContent'
 import config from '../config'
 import type { ExperienceNewportSection } from '../types/PageTypes'
-import { parseMarkdownBold } from '../utils/parseMarkdown'
+import { parseMarkdown } from '../utils/parseMarkdown'
 
 function ExperienceNewport() {
     const [activeSection, setActiveSection] = useState('eat')
@@ -99,7 +99,7 @@ function ExperienceNewport() {
                                 </h2>
                                 {section.lodgingDescription && (
                                     <p className="mt-4 text-base max-w-2xl mx-auto opacity-70">
-                                        {parseMarkdownBold(
+                                        {parseMarkdown(
                                             section.lodgingDescription
                                         )}
                                     </p>

@@ -1,6 +1,7 @@
 import FadeInOnScroll from './FadeInOnScroll'
 import LodgingCard from './LodgingCard'
 import type { LodgingSection } from '../types/PageTypes'
+import { parseMarkdown } from '../utils/parseMarkdown'
 
 interface LodgingSectionContentProps {
     section: LodgingSection
@@ -14,7 +15,7 @@ function LodgingSectionContent({ section }: LodgingSectionContentProps) {
                     {section.title}
                 </h3>
                 <p className="text-base mb-6 opacity-70">
-                    {section.description}
+                    {parseMarkdown(section.description)}
                 </p>
             </FadeInOnScroll>
             {section.hotels.length > 0 ? (

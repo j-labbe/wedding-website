@@ -540,7 +540,7 @@ const config: SiteConfig = {
                                     name: 'Hammetts Hotel',
                                     link: 'https://www.hammettshotel.com/',
                                     description:
-                                        'Located within the wharfs, this hotel provides instant access to downtown attractions. Sammy and Jack stayed here on their engagement trip and loved it! Avg. $570/night',
+                                        'Located within the wharfs, this hotel provides instant access to downtown attractions. Sammy and Jack stayed here on their engagement trip and loved it! Avg. ~~$570/night~~ $375/night (current discount!)',
                                     price: '$$$',
                                     address:
                                         '4 Commercial Wharf, Newport, RI 02840',
@@ -550,7 +550,7 @@ const config: SiteConfig = {
                                     name: 'Hotel Viking',
                                     link: 'https://www.hotelviking.com/',
                                     description:
-                                        'A short walk from the wharfs, located in the historic district near the Tennis Hall of Fame, Audrain Auto Museum, and the Newport Mansions. Avg. $530/night',
+                                        'A short walk from the wharfs, located in the historic district near the Tennis Hall of Fame, Audrain Auto Museum, and the Newport Mansions. Avg. $675/night',
                                     price: '$$$',
                                     address:
                                         '1 Bellevue Ave, Newport, RI 02840',
@@ -568,7 +568,7 @@ const config: SiteConfig = {
                                     name: 'Wyndham Newport Hotel',
                                     link: 'https://www.wyndhamnewportri.com',
                                     description:
-                                        'A comfortable hotel with great amenities and easy access to both Newport and Middletown. Avg. $300/night',
+                                        'A comfortable hotel with great amenities and easy access to both Newport and Middletown. Avg. $255/night',
                                     price: '$$',
                                     address:
                                         '240 Aquidneck Ave, Middletown, RI 02842',
@@ -578,17 +578,17 @@ const config: SiteConfig = {
                                     name: 'Wayfinder Newport',
                                     link: 'https://www.wayfindernewport.com',
                                     description:
-                                        'A modern hotel with stylish rooms and quiet surroundings. Avg. $360/night',
+                                        'A modern hotel with stylish rooms and quiet surroundings. Avg. $335/night',
                                     price: '$$',
                                     address:
                                         '151 Admiral Kalbfus Rd, Newport, RI 02840',
                                     image: WayfinderHotel,
                                 },
                                 {
-                                    name: 'Newport Beach Hotel & Suites',
-                                    link: 'https://www.newportbeachhotelandsuites.com',
+                                    name: 'The Pell',
+                                    link: 'https://www.hyatt.com/jdv-by-hyatt/en-US/pvdjd-the-pell',
                                     description:
-                                        'Close to the beach with beautiful views and a relaxing atmosphere. Avg. $310/night',
+                                        'Located in Middletown, this hotel is a short drive away and often can be booked at a reasonable price. Avg. $220/night',
                                     price: '$$',
                                     address:
                                         'One Wave Avenue, Middletown, RI 02842',
@@ -597,8 +597,8 @@ const config: SiteConfig = {
                             ],
                         },
                         {
-                            sectionId: 'rental-homes',
-                            title: 'Rental Homes',
+                            sectionId: 'cottages',
+                            title: 'Cottages',
                             description:
                                 'These are some unqiue rental options which can come at a steep discount!',
                             hotels: [

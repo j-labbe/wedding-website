@@ -3,6 +3,7 @@ import FadeInOnScroll from './FadeInOnScroll'
 import Lightbox from './Lightbox'
 import { MapPinIcon } from '@phosphor-icons/react'
 import type { LodgingSection } from '../types/PageTypes'
+import { parseMarkdown } from '../utils/parseMarkdown'
 
 interface LodgingCardProps {
     hotel: LodgingSection['hotels'][number]
@@ -59,12 +60,12 @@ function LodgingCard({ hotel }: LodgingCardProps) {
                                 {hotel.name}
                             </h4>
                             <span className="text-accent-gold font-medium">
-                                {hotel.price}
+                                {parseMarkdown(hotel.price)}
                             </span>
                         </div>
                         {hotel.description && (
                             <p className="text-base italic opacity-70 text-center">
-                                {hotel.description}
+                                {parseMarkdown(hotel.description)}
                             </p>
                         )}
                     </div>
