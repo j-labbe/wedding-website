@@ -130,7 +130,6 @@ function ExperienceNewport() {
                                             <LodgingSectionContent
                                                 key={lodgingIndex}
                                                 section={lodgingSection}
-                                                minCols={2}
                                             />
                                         )
                                     )}
