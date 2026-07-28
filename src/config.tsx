@@ -61,9 +61,9 @@ import HammetsHotel from './assets/img/hammetts-hotel.jpg?lqip'
 import HotelViking from './assets/img/hotel-viking.jpg?lqip'
 import WyndhamHotel from './assets/img/wyndham-hotel.jpeg?lqip'
 import WayfinderHotel from './assets/img/wayfinder-hotel.jpg?lqip'
-import NewportBeachHotel from './assets/img/newport-beach-hotel.jpg?lqip'
 import WeathervaneCottages from './assets/img/weathervane.jpeg?lqip'
 import EastIslandHotel from './assets/img/east-island-hotel.jpeg?lqip'
+import ThePell from './assets/img/pell.png?lqip'
 
 // Q & A
 import {
@@ -591,8 +591,8 @@ const config: SiteConfig = {
                                         'Located in Middletown, this hotel is a short drive away and often can be booked at a reasonable price. Avg. $220/night',
                                     price: '$$',
                                     address:
-                                        'One Wave Avenue, Middletown, RI 02842',
-                                    image: NewportBeachHotel,
+                                        '425 E Main Rd, Middletown, RI 02842',
+                                    image: ThePell,
                                 },
                             ],
                         },
