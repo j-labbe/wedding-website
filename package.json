@@ -18,7 +18,7 @@
         "posthog-js": "^1.298.1",
         "react": "^19.2.0",
         "react-dom": "^19.2.0",
-        "react-router-dom": "^7.10.0",
+        "react-router-dom": "^7.18.0",
         "react-turnstile": "^1.1.4",
         "tailwindcss": "^4.1.17"
     },
@@ -34,10 +34,15 @@
         "globals": "^16.5.0",
         "prettier": "3.7.3",
         "typescript": "~5.9.3",
-        "typescript-eslint": "^8.46.4",
-        "vite": "^7.2.4",
+        "typescript-eslint": "^8.73.0",
+        "vite": "^7.3.8",
         "vite-plugin-image-optimizer": "^2.0.3",
         "vite-plugin-lqip": "^0.0.5",
         "vite-plugin-svgr": "^4.5.0"
+    },
+    "overrides": {
+        "vite-plugin-lqip": {
+            "sharp": "^0.35.5"
+        }
     }
 }
